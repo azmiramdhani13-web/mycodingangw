@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editor Data Yearbook</title>
+    <link rel="stylesheet" href="./admin.css" />
+  </head>
+  <body>
+    <div class="admin-shell">
+      <div class="topbar panel">
+        <div class="brand">Khatulistiwa Yearbook Editor</div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="ghost-btn" href="./deui.html">Kembali ke halaman utama</a>
+          <button class="primary-btn" id="saveBtn" type="button">Simpan data</button>
+        </div>
+      </div>
+
+      <div class="admin-body">
+        <aside class="sidebar panel">
+          <div class="preview-card">
+            <img id="previewPhoto" src="" alt="Preview siswa" />
+            <div class="preview-meta">
+              <strong id="previewName">Nama siswa</strong>
+              <span id="previewNick">@nickname</span>
+              <span id="previewCategory">Kategori</span>
+              <div id="previewQuote">Quote akan muncul di sini</div>
+            </div>
+          </div>
+        </aside>
+
+        <main class="form-panel panel">
+          <div class="form-toolbar">
+            <div>
+              <strong id="studentCounter">Siswa 1 / 145</strong>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <button class="ghost-btn" id="prevBtn" type="button">Prev</button>
+              <button class="ghost-btn" id="nextBtn" type="button">Next</button>
+              <button class="link-btn" id="resetBtn" type="button">Reset ke default</button>
+            </div>
+          </div>
+
+          <form id="studentForm">
+            <div class="row">
+              <div class="field">
+                <label for="studentId">ID</label>
+                <input id="studentId" name="studentId" type="number" readonly />
+              </div>
+              <div class="field">
+                <label for="studentCategory">Kategori</label>
+                <select id="studentCategory" name="studentCategory">
+                  <option>Paling rame</option>
+                  <option>Paling rajin</option>
+                  <option>Paling santai</option>
+                  <option>Paling sering telat</option>
+                  <option>Paling receh</option>
+                  <option>Anak dokumentasi</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="studentName">Nama lengkap</label>
+              <input id="studentName" name="studentName" type="text" placeholder="Masukkan nama lengkap" />
+            </div>
+
+            <div class="field">
+              <label for="studentNick">Nickname</label>
+              <input id="studentNick" name="studentNick" type="text" placeholder="@nickname" />
+            </div>
+
+            <div class="field">
+              <label for="studentQuote">Quote</label>
+              <textarea id="studentQuote" name="studentQuote" placeholder="Tulis quote singkat"></textarea>
+            </div>
+
+            <div class="field">
+              <label for="studentFact">Fakta</label>
+              <textarea id="studentFact" name="studentFact" placeholder="Tulis fakta singkat"></textarea>
+            </div>
+
+            <div class="field">
+              <label for="studentPhoto">URL foto</label>
+              <input id="studentPhoto" name="studentPhoto" type="url" placeholder="https://..." />
+            </div>
+          </form>
+
+          <div class="notice" id="notice"></div>
+        </main>
+      </div>
+    </div>
+
+    <script src="./yearbook-data.js"></script>
+    <script src="./admin.js"></script>
+  </body>
+</html>

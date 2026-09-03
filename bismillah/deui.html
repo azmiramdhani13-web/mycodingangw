@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f3ead8">
+<meta name="description" content="Yearbook digital 145 orang — satu angkatan, ribuan kejadian, satu cerita.">
+<title>OUR YEARBOOK — 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Permanent+Marker&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f3ead8;--paper2:#e3d1b1;--cream:#fffaf0;--ink:#171717;--orange:#ff6b35;--blue:#004e89;--yellow:#f7d774;--green:#9bc79a;--red:#e7aaa2;--serif:"Playfair Display",Georgia,serif;--mono:"DM Mono",monospace;--hand:"Permanent Marker",cursive}
+body.dark{--paper:#151515;--paper2:#222;--cream:#2b2b2b;--ink:#f3ead8}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:auto}body{background:var(--paper);color:var(--ink);font-family:var(--mono);overflow-x:hidden}button,input{font:inherit}button{cursor:pointer}img{width:100%;display:block}::selection{background:var(--orange);color:#fff}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.035;background-image:repeating-linear-gradient(0deg,#000 0,transparent 1px,transparent 4px)}
+.loader{position:fixed;inset:0;z-index:99999;background:var(--ink);color:var(--paper);display:grid;place-items:center;transition:opacity .45s ease,visibility 0s linear .45s}.loader.hide{opacity:0;visibility:hidden;pointer-events:none}.loader-box{width:min(520px,84vw);text-align:center}
+
+/* ANIMASI LOGO KHATULISTIWA GENERATIONS */
+.loader-logo-wrapper {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 24px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loader-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  animation: logoPulseSpin 5s ease-in-out infinite alternate;
+}
+@keyframes logoPulseSpin {
+  0% {
+    transform: scale(0.92) rotate(-6deg);
+    filter: drop-shadow(0 0 10px rgba(255, 107, 53, 0.5));
+  }
+  50% {
+    transform: scale(1.06) rotate(6deg);
+    filter: drop-shadow(0 0 25px rgba(247, 215, 116, 0.9));
+  }
+  100% {
+    transform: scale(0.96) rotate(0deg);
+    filter: drop-shadow(0 0 15px rgba(0, 78, 137, 0.7));
+  }
+}
+
+.loader-head{display:flex;justify-content:space-between;font-size:9px;letter-spacing:3px;margin-bottom:10px}.loader-line{height:3px;background:var(--paper);transform-origin:left;animation:loading 2.3s cubic-bezier(.7,0,.3,1)}@keyframes loading{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.nav{position:fixed;top:0;left:0;right:0;z-index:2000;padding:13px 5vw;display:flex;justify-content:space-between;align-items:center;mix-blend-mode:normal}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:800}
+.brand-logo{width:36px;height:36px;object-fit:contain;border-radius:50%}
+.nav-actions{display:flex;gap:7px}.nav-btn{background:var(--paper);color:var(--ink);border:1px solid var(--ink);padding:8px 10px;font-size:9px;letter-spacing:1px}
+.hero{min-height:100svh;padding:120px 6vw 70px;position:relative;display:flex;align-items:center;overflow:hidden}.hero-content{position:relative;z-index:5;width:min(800px,90vw)}.label{font-size:10px;letter-spacing:4px;color:var(--orange)}h1{font-family:var(--serif);font-size:clamp(55px,10vw,145px);line-height:.82;letter-spacing:-5px}.hero h1 em{color:var(--orange)}.hero-desc{max-width:500px;margin-top:40px;font-size:13px;line-height:1.8}.hero-photo{position:absolute;width:min(38vw,470px);right:7vw;top:18%;padding:10px 10px 42px;background:var(--cream);box-shadow:12px 14px 0 var(--blue);transform:rotate(4deg);z-index:2}.hero-photo img{aspect-ratio:4/5;object-fit:cover}.caption{position:absolute;bottom:10px;left:14px;font-family:var(--hand);font-size:12px}.sticker{position:absolute;left:48%;bottom:8%;width:120px;height:120px;border:2px solid var(--ink);border-radius:50%;background:var(--yellow);display:grid;place-items:center;text-align:center;font-family:var(--hand);font-size:11px;transform:rotate(-12deg);z-index:8}
+.section{padding:140px 6vw}.section-head{max-width:900px}.section-title{font-family:var(--serif);font-size:clamp(48px,8vw,110px);line-height:.85;margin-top:14px}.lead{max-width:600px;margin-top:25px;font-size:12px;line-height:1.8}.reveal{opacity:1;transform:none}
+.map{position:relative;margin-top:80px;border-top:2px solid var(--ink)}.map-line{position:absolute;left:7%;right:7%;top:50%;height:2px;background:var(--ink)}.map-items{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative}.map-item{padding:30px 10px}.map-dot{width:24px;height:24px;border:2px solid var(--ink);background:var(--orange);border-radius:50%;margin-bottom:20px}.map-year{font-family:var(--serif);font-size:55px}.map-item p{font-size:9px;line-height:1.6;margin-top:8px}
+.roulette{background:var(--blue);color:#fff;text-align:center;padding:140px 6vw}.roulette-box{max-width:800px;margin:auto}.roulette h2,.guess h2,.secret h2,.ending h2{font-family:var(--serif);font-size:clamp(50px,9vw,110px);line-height:.82}.memory-card{min-height:210px;margin:55px auto 25px;max-width:620px;padding:35px;background:var(--cream);color:var(--ink);border:2px solid var(--ink);display:grid;place-items:center;gap:20px;transform:rotate(-1deg)}.memory-card img{display:none;width:min(100%,360px);max-height:260px;object-fit:cover;border:2px solid var(--ink)}.memory-card.has-photo img{display:block}.memory-text{font-family:var(--serif);font-size:clamp(24px,4vw,42px)}.meta{font-size:9px;opacity:.6;margin-top:12px}.memory-submit{display:flex;gap:8px;max-width:620px;margin:25px auto 0;flex-wrap:wrap;justify-content:center}.memory-submit input{padding:12px;border:2px solid #fff;background:transparent;color:#fff;min-width:0}.memory-submit input[type="text"]{flex:1}.memory-submit input::file-selector-button{margin-right:8px}.btn{border:2px solid currentColor;background:transparent;color:inherit;padding:13px 18px;font-size:10px;letter-spacing:1px}.btn.orange{background:var(--orange);border-color:var(--orange);color:#fff}
+.gallery{margin-top:80px;display:grid;grid-template-columns:repeat(12,1fr);gap:24px}.polaroid{background:#fff;color:#111;padding:9px 9px 40px;position:relative;transition:.3s}.polaroid img{aspect-ratio:1/1.12;object-fit:cover}.polaroid b{position:absolute;bottom:10px;left:13px;font-family:var(--hand);font-size:10px}.p1{grid-column:1/5;transform:rotate(-5deg)}.p2{grid-column:5/9;margin-top:70px;transform:rotate(3deg)}.p3{grid-column:9/13;transform:rotate(-2deg)}.p4{grid-column:2/6;margin-top:70px;transform:rotate(4deg)}.p5{grid-column:6/10;transform:rotate(-3deg)}.p6{grid-column:10/13;margin-top:70px;transform:rotate(5deg)}.polaroid:hover{transform:rotate(0) scale(1.04);z-index:5}
+.people-tools{display:flex;gap:8px;flex-wrap:wrap;margin:55px 0 35px}.search{width:min(360px,100%);padding:12px;border:2px solid var(--ink);background:transparent;color:var(--ink);outline:none}.filter{padding:10px 12px;border:1px solid var(--ink);background:transparent;color:var(--ink);font-size:9px}.filter.active{background:var(--ink);color:var(--paper)}.people-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px}.person{grid-column:span 3;background:var(--cream);border:2px solid var(--ink);padding:9px;transform:rotate(var(--r));transition:.25s;cursor:pointer}.person:nth-child(5n){grid-column:span 4}.person:hover{transform:rotate(0) translateY(-6px)}.person-photo{aspect-ratio:1/1.1;overflow:hidden;background:var(--paper2)}.person-photo img{height:100%;object-fit:cover}.person-info{padding:13px 3px 5px}.num{font-size:8px;color:var(--orange)}.person-name{font-family:var(--serif);font-size:24px}.nick{font-size:8px;opacity:.55}.quote{font-family:var(--hand);font-size:11px;margin:10px 0}.fact{font-size:8px;line-height:1.5}.empty{grid-column:1/-1;text-align:center;padding:70px;font-family:var(--hand)}
+.guess{padding:140px 6vw}.guess-box{max-width:900px;margin:auto}.guess-photo{width:min(420px,100%);height:390px;margin:40px auto 25px;border:3px solid var(--ink);overflow:hidden}.guess-photo img{height:100%;object-fit:cover;filter:blur(18px) grayscale(1)}.guess-photo.revealed img{filter:none}.answers{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-width:700px;margin:auto}.answer{padding:16px;border:2px solid var(--ink);background:transparent;color:var(--ink);text-align:left}.answer.correct{background:var(--green)}.answer.wrong{background:var(--red)}#guessResult{font-family:var(--hand);text-align:center;margin:25px}
+.secret{padding:150px 6vw;background:#171717;color:#f3ead8;text-align:center}.secret-door{max-width:650px;aspect-ratio:16/9;margin:50px auto 0;border:3px solid #f3ead8;position:relative;overflow:hidden;cursor:pointer}.secret-door img{height:100%;object-fit:cover;filter:grayscale(1) brightness(.25);transition:1s}.secret-door.open img{filter:none;transform:scale(1.05)}.secret-overlay{position:absolute;inset:0;display:grid;place-items:center;background:#0005;font-family:var(--hand);font-size:20px}.secret-door.open .secret-overlay{opacity:0}.secret-message{max-width:650px;margin:25px auto;font-family:var(--hand);font-size:18px;line-height:1.6;opacity:0;transform:translateY(12px);transition:.5s}.secret-message.show{opacity:1;transform:none}
+.hunt{padding:130px 6vw;background:var(--paper2)}.hunt-wall{max-width:1100px;min-height:620px;margin:50px auto 0;border:3px solid var(--ink);position:relative;background-image:repeating-linear-gradient(90deg,transparent,transparent 34px,#00000008 35px),repeating-linear-gradient(0deg,transparent,transparent 34px,#00000008 35px)}.hunt-note{position:absolute;width:150px;min-height:115px;padding:18px;background:var(--yellow);font-family:var(--hand);font-size:11px;box-shadow:5px 7px #0002;opacity:.3;transform:rotate(var(--r));transition:.3s;cursor:pointer}.hunt-note.found,.hunt-note:hover{opacity:1;transform:rotate(0) scale(1.05);z-index:5}.n1{left:6%;top:24%;--r:-5deg}.n2{left:38%;top:17%;background:#ffaaa0;--r:4deg}.n3{right:6%;top:28%;background:#a9d5ee;--r:-3deg}.n4{left:20%;bottom:10%;background:#bde3b5;--r:3deg}.n5{right:20%;bottom:9%;background:#fff4df;--r:-5deg}.hunt-counter{position:absolute;right:15px;bottom:15px;font-size:9px}
+.before-after{display:grid;grid-template-columns:1fr 1fr;gap:25px;margin-top:70px}.ba{border:2px solid var(--ink);padding:10px;background:var(--cream)}.ba img{aspect-ratio:16/10;object-fit:cover}.ba h3{font-family:var(--serif);font-size:35px;margin:12px 0 4px}.ba p{font-size:9px;line-height:1.6}
+.guestbook{padding:140px 6vw}.wall{max-width:1100px;margin:60px auto 0;min-height:500px;position:relative}.sticky{position:relative;display:inline-block;width:190px;min-height:130px;padding:20px;margin:18px;background:var(--yellow);font-family:var(--hand);font-size:12px;vertical-align:top;transform:rotate(var(--r));box-shadow:5px 7px #0002}.write-row{display:flex;gap:8px;max-width:650px;margin:30px auto}.write-row input{flex:1;padding:13px;border:2px solid var(--ink);background:transparent;color:var(--ink)}
+.sound{padding:130px 6vw;background:var(--paper2)}.songs{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-top:55px}.song{border:2px solid var(--ink);padding:20px;background:var(--cream)}.song strong{font-family:var(--serif);font-size:28px}.song p{font-size:9px;line-height:1.6;margin-top:8px}.spotify{margin-top:35px;width:100%;height:300px;border:0}
+.achieve{padding:140px 6vw;background:var(--blue);color:#fff}.progress{height:18px;border:2px solid #fff;margin:40px 0 20px}.progress i{display:block;height:100%;width:0;background:var(--orange);transition:.5s}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat{border:1px solid #fff;padding:20px}.stat b{display:block;font-family:var(--serif);font-size:42px}
+.ending{min-height:100svh;padding:80px 20px;display:grid;place-items:center;background:var(--orange);color:#fff;text-align:center}.ending h2{margin:25px 0 35px}.final{max-width:620px;margin:auto;font-size:12px;line-height:1.8}.final-secret{margin:35px auto;max-width:650px;font-family:var(--hand);font-size:20px;opacity:0;transform:translateY(20px);transition:.7s}.final-secret.visible{opacity:1;transform:none}
+footer{padding:65px 6vw;background:var(--ink);color:var(--paper);display:flex;justify-content:space-between;align-items:center;gap:25px;flex-wrap:wrap}.footer-title{font-family:var(--serif);font-size:30px}.footer-copy{font-size:9px;line-height:1.7;max-width:350px;margin-top:10px}
+
+/* STYLING SOSMED PEMBUAT WEB */
+.developer-credit{display:inline-flex;align-items:center;gap:8px;margin-top:15px;padding:6px 12px;background:rgba(255,255,255,0.07);border-radius:20px;font-size:10px;color:var(--paper)}
+.ig-link{display:inline-flex;align-items:center;gap:5px;color:var(--yellow);text-decoration:none;font-weight:bold;transition:.2s}
+.ig-link:hover{color:var(--orange);text-decoration:underline}
+.ig-icon{width:14px;height:14px;fill:currentColor}
+
+.modal{position:fixed;inset:0;z-index:8000;background:#000b;display:none;place-items:center;padding:18px}.modal.open{display:grid}.modal-box{width:min(800px,100%);max-height:90svh;overflow:auto;background:var(--cream);color:var(--ink);border:3px solid var(--ink);display:grid;grid-template-columns:1fr 1fr;position:relative}.modal-photo{min-height:430px}.modal-photo img{height:100%;object-fit:cover}.modal-info{padding:35px}.modal-info h3{font-family:var(--serif);font-size:52px;line-height:.9;margin:12px 0}.modal-quote{font-family:var(--hand);font-size:17px;line-height:1.5;margin:30px 0}.close{position:absolute;right:8px;top:8px;width:35px;height:35px;border:2px solid var(--ink);background:var(--paper);color:var(--ink)}
+#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);z-index:10000;background:var(--ink);color:var(--paper);padding:12px 16px;border:2px solid var(--paper);font-size:9px;opacity:0;transition:.3s;pointer-events:none}#toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:760px){.nav{padding:11px 16px}.brand span{display:none}.hero{display:block;padding:120px 20px 70px}.hero h1{font-size:clamp(54px,16vw,90px);letter-spacing:-3px}.hero-photo{position:relative;right:auto;top:auto;width:82%;margin:65px 0 0 auto}.sticker{left:5%;bottom:7%;width:100px;height:100px}.section{padding:100px 20px}.map-items{grid-template-columns:1fr 1fr}.map-line{display:none}.map-year{font-size:42px}.gallery{grid-template-columns:repeat(2,1fr);gap:15px 8px}.polaroid{grid-column:auto!important;margin-top:0!important}.polaroid:nth-child(even){margin-top:35px!important}.people-grid{grid-template-columns:repeat(2,1fr);gap:13px}.person,.person:nth-child(5n){grid-column:span 1}.person:nth-child(4n){grid-column:span 2}.person-name{font-size:19px}.person{padding:7px}.answers{grid-template-columns:1fr}.before-after{grid-template-columns:1fr}.songs{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.modal-box{grid-template-columns:1fr}.modal-photo{height:280px;min-height:0}.modal-info{padding:24px}.modal-info h3{font-size:43px}.hunt-wall{min-height:800px}.hunt-note{width:130px;min-height:110px;font-size:10px}.n1{left:3%;top:20%}.n2{left:35%;top:35%}.n3{right:3%;top:24%}.n4{left:8%;bottom:10%}.n5{right:8%;bottom:23%}.write-row{flex-direction:column}.spotify{height:240px}}
+</style>
+</head>
+<body>
+
+<!-- LOADING SCREEN BERLENGKAPKAN ANIMASI LOGO -->
+<div class="loader" id="loader">
+  <div class="loader-box">
+    <div class="loader-logo-wrapper">
+      <img src="https://cdn.phototourl.com/member/2026-08-31-9fa7b627-e0a6-463d-b67e-bf78347ea142.jpg" 
+      alt="Khatulistiwa Generation logo" class="loader-logo-img">
+    </div>
+    <div class="loader-head">
+      <span>MEMUAT ARSIP ANGKATAN...</span>
+      <span id="loadPct">98%</span>
+    </div>
+    <div class="loader-line"></div>
+  </div>
+</div>
+
+<!-- NAVBAR TOP -->
+<nav class="nav">
+  <div class="brand">
+    <img src="https://cdn.phototourl.com/member/2026-08-31-9fa7b627-e0a6-463d-b67e-bf78347ea142.jpg" alt="Logo" class="brand-logo">
+    <span>Khatulistiwa Generation</span>
+  </div>
+  <div class="nav-actions">
+    <button class="nav-btn" id="themeToggle">MODE</button>
+    <button class="nav-btn" onclick="randomPerson()">ACAK ORANG</button>
+    <a class="nav-btn" href="./admin.html" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none">EDIT DATA</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-content">
+    <div class="label">// ARSIP ANGKATAN 2024</div>
+    <h1>KITA <em>PERNAH</em> ADA DI SINI.</h1>
+    <p class="hero-desc">145 kepala, 145 isi cerita, ribuan tawa, dan beribu jam yang sudah kita lewati bersama di pesantren yang sama.</p>
+  </div>
+  <div class="hero-photo">
+    <img src="https://cdn.phototourl.com/member/2026-08-31-199d0a76-815b-4d53-9b00-3d247cd2e060.jpg" alt="Foto Angkatan">
+    <div class="caption">Hari Terakhir Sekolah, 2026</div>
+  </div>
+  <div class="sticker">145<br>CERITA</div>
+</header>
+
+<section class="section">
+  <div class="section-head">
+    <div class="label">// GARIS WAKTU</div>
+    <h2 class="section-title">PERJALANAN KITA DARI HARI PERTAMA</h2>
+    <p class="lead">Dari muka-muka canggung di kelas masjur pertama sampai akhirnya kita bisa saling ejek tanpa rasa bersalah.</p>
+  </div>
+  <div class="map">
+    <div class="map-line"></div>
+    <div class="map-items">
+      <div class="map-item">
+        <div class="map-dot"></div>
+        <div class="map-year">2024</div>
+        <strong>MASUK PERTAMA</strong>
+        <p>Masih malu-malu, salah panggil nama, nanya asal dari mana, kobong berapa,asal sekolah mana,jadwal ngaji kitab apa,nnya kelas kita ada di sebelah mana.</p>
+      </div>
+      <div class="map-item">
+        <div class="map-dot"></div>
+        <div class="map-year">2025</div>
+        <strong>MULAI KOMPAK</strong>
+        <p>udah tau nama, dan barwi jadi markas utama.</p>
+      </div>
+      <div class="map-item">
+        <div class="map-dot"></div>
+        <div class="map-year">2026</div>
+        <strong>PUNCAK RAME</strong>
+        <p>Acara pesantren, agustusan, melencing bersama, main voker, gapleh, ketawa kencang, udah tau nama bapak temen dan masih banyak lagi yang nggak bisa di sebutkan satu persatu.</p>
+      </div>
+      <div class="map-item">
+        <div class="map-dot"></div>
+        <div class="map-year">2027</div>
+        <strong>GARIS FINIS</strong>
+        <p>Fokus ujian di sekolah , hitung mundur kelulusan sekolah, dan menyadari sebentar lagi pisah, udah mulai mikir nyansus atau keluar ya,nyari kerja atau kuliah ya.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="roulette">
+  <div class="roulette-box">
+    <div class="label" style="color:var(--yellow)">// MESIN KENANGAN ACAK</div>
+    <h2>PUTAR KENANGAN</h2>
+    <div class="memory-card">
+     <img id="memoryPhoto" src="" alt="Foto kenangan">
+     <div class="memory-text" id="memoryText">Klik tombol di bawah untuk memutar cerita.</div>
+    </div>
+    <div class="meta" id="memoryMeta">ROULETTE READY</div>
+    <button class="btn orange" style="margin-top:25px" onclick="spinRoulette()">PUTAR ROULETTE</button>
+    <div class="memory-submit">
+     <input type="file" id="memoryPhotoInput" accept="image/*">
+     <input type="text" id="memoryCaption" placeholder="Ceritakan foto ini...">
+     <button class="btn" type="button" onclick="addMemoryPhoto()">KIRIM FOTO</button>
+    </div>
+    <p class="meta">Foto tersimpan di browser ini dan akan ikut dalam roulette.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div class="label">// GALERI MOMEN</div>
+    <h2 class="section-title">POTONGAN HARI-HARI KITA</h2>
+  </div>
+  <div class="gallery">
+    <div class="polaroid p1">
+      <img src="https://cdn.phototourl.com/member/2026-08-31-c607bec6-bf49-4380-a409-a336ead52c6d.jpg" alt="Momen">
+      <b>Kerja ngaruruh taneh bareng</b>
+    </div>
+    <div class="polaroid p2">
+      <img src="https://cdn.phototourl.com/member/2026-08-31-f4f8c6e1-0110-4d2a-bbaa-d4d64f961400.jpg" alt="Momen">
+      <b>fotbar ketika lagi kerja</b>
+    </div>
+    <div class="polaroid p3">
+      <img src="https://cdn.phototourl.com/member/2026-08-31-5ee3d34a-95af-4fa2-8e8f-d041deb62504.jpg" alt="Momen">
+      <b>Nepangan ka gus bareng-bareng</b>
+    </div>
+    <div class="polaroid p4">
+      <img src="https://cdn.phototourl.com/member/2026-08-31-36aaa2cd-452c-4820-8a41-1cd55c116026.jpg" alt="Momen">
+      <b>Ngeliwet pertama di pondok bareng kng.agus</b>
+    </div>
+    <div class="polaroid p5">
+      <img src="https://cdn.phototourl.com/member/2026-08-31-9b888478-2474-412b-af71-cfb3ba566ae5.jpg" alt="Momen">
+      <b>Main kelaut pilang dari nikahan</b>
+    </div>
+    <div class="polaroid p6">
+      <img src="https://cdn.phototourl.com/member/2026-08-31-bf170812-096c-4b1a-82b9-d8b21cfef532.jpg" alt="Momen">
+      <b>Tamatan pasaran mukhtar sareng rencang-rencang </b>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div class="label">// DIREKTORI 145 ANGKATAN</div>
+    <h2 class="section-title">SIAPA AJA MEREKA?</h2>
+    <p class="lead">Cari nama, julukan, atau filter berdasarkan vibe mereka selama di sekolah.</p>
+  </div>
+
+  <div class="people-tools">
+    <input type="text" class="search" id="searchInput" placeholder="Cari nama, quote, atau trivia...">
+    <button class="filter active" data-cat="all">SEMUA (145)</button>
+    <button class="filter" data-cat="Paling rame">PALING RAME</button>
+    <button class="filter" data-cat="Paling rajin">PALING RAJIN</button>
+    <button class="filter" data-cat="Paling santai">PALING SANTAI</button>
+    <button class="filter" data-cat="Paling sering telat">FREQUENT LATE</button>
+    <button class="filter" data-cat="Paling receh">RECEH</button>
+    <button class="filter" data-cat="Anak dokumentasi">DOKUMENTASI</button>
+  </div>
+
+  <div class="people-grid" id="peopleGrid"></div>
+</section>
+
+<section class="guess">
+  <div class="guess-box">
+    <div class="label">// MINI GAME</div>
+    <h2>GUESS WHO?</h2>
+    <p class="lead" style="margin:15px auto 0;text-align:center">Tebak siapa pemilik foto samar di bawah ini!</p>
+    <div class="guess-photo" id="guessPhotoBox">
+      <img id="guessPhoto" src="" alt="Tebak Siapa">
+    </div>
+    <div class="answers" id="guessAnswers"></div>
+    <div id="guessResult"></div>
+    <div style="text-align:center;margin-top:20px">
+      <button class="btn" onclick="initGuessGame()">SOAL NEXT</button>
+    </div>
+  </div>
+</section>
+
+<section class="hunt">
+  <div style="max-width:900px;margin:auto;text-align:center">
+    <div class="label">// MINI GAME #2</div>
+    <h2 style="font-family:var(--serif);font-size:clamp(40px,7vw,80px)">MEMORY HUNT</h2>
+    <p class="lead" style="margin:15px auto">Temukan 5 catatan rahasia yang tersembunyi di papan berikut!</p>
+  </div>
+  <div class="hunt-wall" id="huntWall">
+    <div class="hunt-note n1" onclick="findNote(this, 1)">"Kunci kelas 12 IPA 2 pernah hilang gara-gara dimasukkan ke tas temen."</div>
+    <div class="hunt-note n2" onclick="findNote(this, 2)">"Ada yang pernah pacaran diam-diam dari kelas 10 sampai lulus."</div>
+    <div class="hunt-note n3" onclick="findNote(this, 3)">"Kantin Bu Sri pernah rugi gara-gara pada lupa bayar gorengan."</div>
+    <div class="hunt-note n4" onclick="findNote(this, 4)">"Sepatu Pak Guru pernah disembunyiin di balik lemari belakang."</div>
+    <div class="hunt-note n5" onclick="findNote(this, 5)">"Sound system lapangan pernah bunyi sendiri pas jam pelajaran hantu."</div>
+    <div class="hunt-counter" id="huntCounter">TERTEMUKAN: 0 / 5</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div class="label">// DULU VS SEKARANG</div>
+    <h2 class="section-title">PERUBAHAN KITA</h2>
+  </div>
+  <div class="before-after">
+    <div class="ba">
+      <img src="https://picsum.photos/seed/ba1/800/500" alt="Dulu">
+      <h3>KAMPUS / KELAS 10</h3>
+      <p>Masih lugu, baju kepanjangan, potong rambut rapi sesuai aturan, takut sama senior.</p>
+    </div>
+    <div class="ba">
+      <img src="https://picsum.photos/seed/ba2/800/500" alt="Sekarang">
+      <h3>KELAS 12 / SEKARANG</h3>
+      <p>Sudah tau seluk-beluk sekolah, baju disetrika rapi, nongkrong sampai sore.</p>
+    </div>
+  </div>
+</section>
+
+<section class="secret">
+  <div>
+    <div class="label" style="color:var(--yellow)">// PINTU RAHASIA</div>
+    <h2>EASTER EGG ANGKATAN</h2>
+    <p class="lead" style="margin:20px auto;color:#ccc">Klik pintu di bawah ini untuk membuka sesuatu yang tersembunyi...</p>
+    <div class="secret-door" id="secretDoor" onclick="toggleSecret()">
+      <img src="https://picsum.photos/seed/door/900/500" alt="Pintu Rahasia">
+      <div class="secret-overlay">KLIK UNTUK MEMBUKA PINTU RAHASIA</div>
+    </div>
+    <div class="secret-message" id="secretMsg">
+      "Terima kasih sudah menjadi bagian dari perjalanan 3 tahun ini. Apapun yang terjadi di masa depan, kita pernah berjuang di bawah atap yang sama."
+    </div>
+  </div>
+</section>
+
+<section class="sound">
+  <div style="max-width:900px;margin:auto">
+    <div class="label">// SOUNDTRACK ANGKATAN</div>
+    <h2 style="font-family:var(--serif);font-size:clamp(40px,7vw,90px)">LAGU YANG KITA PUTAR REPEAT</h2>
+    <div class="songs">
+      <div class="song">
+        <strong>01. Kisah Klasik — Sheila on 7</strong>
+        <p>Diputar tiap kali ada momen perpisahan atau camping angkatan.</p>
+      </div>
+      <div class="song">
+        <strong>02. Monokrom — Tulus</strong>
+        <p>Lagu wajib pas lagi bikin konten foto-foto kelas.</p>
+      </div>
+      <div class="song">
+        <strong>03. Kenangan Manis — Pamungkas</strong>
+        <p>Teman setia pas ngerjain tugas sampai larut malam.</p>
+      </div>
+      <div class="song">
+        <strong>04. Selamat Jalan — Type-X</strong>
+        <p>Diputar pas hari terakhir ujian nasional selesai.</p>
+      </div>
+    </div>
+    <iframe class="spotify" src="https://open.spotify.com/playlist/5S12oPfxCKNJdynTFTEnTp?si=e_AVpIWlRIu8g-DKNR4E4g" allow="encrypted-media"></iframe>
+  </div>
+</section>
+
+<section class="guestbook">
+  <div style="max-width:900px;margin:auto;text-align:center">
+    <div class="label">// PAPAN PESAN & KESAN</div>
+    <h2 style="font-family:var(--serif);font-size:clamp(45px,8vw,95px)">TINGGALKAN JEJAK</h2>
+    <div class="write-row">
+      <input type="text" id="guestInput" placeholder="Tulis pesan singkat untuk seangkatan...">
+      <button class="btn orange" onclick="addSticky()">TEMPEL PESAN</button>
+    </div>
+  </div>
+  <div class="wall" id="guestWall">
+    <div class="sticky" style="--r:-3deg">"Jangan lupakan utang kas kelas ya teman-teman!" — Bendahara</div>
+    <div class="sticky" style="--r:4deg">"Sukses buat kita semua di perguruan tinggi / kerjaan nanti!" — Rizky</div>
+    <div class="sticky" style="--r:-5deg">"Makasih udah mau sekelompok ama gue walaupun sering pasrah." — Anonim</div>
+    <div class="sticky" style="--r:2deg">"Kantin Bu Sri I miss you already..." — Si Doyan Makan</div>
+  </div>
+</section>
+
+<section class="achieve">
+  <div style="max-width:900px;margin:auto">
+    <div class="label" style="color:var(--yellow)">// CAPAIAN KITA</div>
+    <h2 style="font-family:var(--serif);font-size:clamp(40px,7vw,90px)">ANGKATAN DALAM ANGKA</h2>
+    <div class="progress"><i id="progressBar"></i></div>
+    <div class="stats">
+      <div class="stat"><b id="stat1">145</b> ORANG ANGKATAN</div>
+      <div class="stat"><b id="stat2">1095</b> HARI BERSAMA</div>
+      <div class="stat"><b id="stat3">480</b> TUGAS KELOMPOK</div>
+      <div class="stat"><b id="stat4">12</b> CINTA LOKAL</div>
+    </div>
+  </div>
+</section>
+
+<section class="ending">
+  <div>
+    <div class="label" style="color:#fff">// AKHIR DARI HALAMAN, BUKAN AKHIR CERITA</div>
+    <h2>SAMPAI JUMPA DI MASA DEPAN.</h2>
+    <p class="final">Yearbook ini dibuat agar kapan pun kamu rindu masa-masa ini, kamu cukup buka halaman ini dan mengingat bahwa kamu pernah punya keluarga kedua di sini.</p>
+    <div style="margin-top:30px">
+      <button class="btn" style="background:#fff;color:var(--ink)" onclick="showFinalSecret()">Buka Pesan Terakhir</button>
+    </div>
+    <div class="final-secret" id="finalSecret">
+      ✨ "Semoga sukses di jalan masing-masing. Jangan lupa sapa kalau ketemu di jalan!" ✨
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-title">OUR YEARBOOK 2026</div>
+    <p class="footer-copy">Didesain & Dikembangkan dengan kenangan oleh Tim Dokumentasi Angkatan 2026.</p>
+    
+    <!-- AKUN IG PEMBUAT WEB -->
+    <div class="developer-credit">
+      <span>Created by</span>
+      <a href="https://www.instagram.com/azmisyhrfi_?igsi=MTV0a3M4eDFkY3o1Nw==" target="_blank" rel="noopener noreferrer" class="ig-link">
+        <svg class="ig-icon" viewBox="0 0 24 24">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+        @azmisyhrfi_
+      </a>
+    </div>
+
+  </div>
+  <div>
+    <p style="font-size:10px;letter-spacing:2px">TERIMA KASIH TELAH MENJADI BUKTI SEJARAH.</p>
+  </div>
+</footer>
+
+<div class="modal" id="personModal" onclick="closeModalOnOuter(event)">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal()">&times;</button>
+    <div class="modal-photo">
+      <img id="mPhoto" src="" alt="">
+    </div>
+    <div class="modal-info">
+      <div class="num" id="mNum">#000</div>
+      <h3 id="mName">Nama Orang</h3>
+      <div class="nick" id="mNick">@username</div>
+      <div class="label" id="mCat" style="margin-top:15px">// KATEGORI</div>
+      <div class="modal-quote" id="mQuote">"Quote akan tampil di sini..."</div>
+      <div class="fact" id="mFact">💡 Fact menarik di sini...</div>
+    </div>
+  </div>
+</div>
+
+<div id="toast">Notifikasi...</div>
+
+<script src="./yearbook-data.js"></script>
+<script>
+const LOCAL_PHOTO_FILES = [
+  // Isi dengan foto lokal yang ada di folder ./assets/foto/
+  // Contoh: './assets/foto/1.jpg', './assets/foto/2.jpg', './assets/foto/3.jpg'
+];
+
+function resolvePersonPhoto(id) {
+  if (LOCAL_PHOTO_FILES.length) {
+    return LOCAL_PHOTO_FILES[Math.floor(Math.random() * LOCAL_PHOTO_FILES.length)];
+  }
+  return `https://picsum.photos/seed/yearbook${id}/700/850`;
+}
+
+const people = window.YearbookData ? window.YearbookData.getYearbookPeople() : Array.from({length: 145}, (_, i) => {
+  const id = i + 1;
+  const categories = ["Paling rame", "Paling rajin", "Paling santai", "Paling sering telat", "Paling receh", "Anak dokumentasi"];
+  const quotes = [
+    "Yang penting hadir, urusan sisanya belakangan.",
+    "Nanti juga kelar kalau dikerjain bareng.",
+    "Kalau ada foto, tag aku ya!",
+    "Bentar, gue mikir dulu.",
+    "Kita ketawa dulu, paniknya nanti aja.",
+    "Datang membawa cerita, pulang membawa foto.",
+    "Ujian cuma sebentar, kenangan yang lama.",
+    "Jangan tanya besok ada tugas apa.",
+    "Kantin adalah rumah kedua saya.",
+    "Hidup ini singkat, perbanyak tidur di kelas."
+  ];
+  const facts = [
+    "Punya koleksi foto random teman seangkatan paling banyak.",
+    "Sering jadi orang terakhir yang masuk grup chat.",
+    "Kalau sudah ketawa, suaranya terdengar sampai lantai 3.",
+    "Paling hafal jadwal piket kelas padahal jarang piket.",
+    "Pernah salah masuk kelas tapi tetap duduk santai.",
+    "Selalu punya stok camilan di kolong meja.",
+    "Pernah ketiduran dari jam pertama sampai istirahat.",
+    "Suka pinjam pulpen tapi lupa ngembaliin."
+  ];
+  return {
+    id:id,
+    name: `Teman ${String(id).padStart(3, '0')}`,
+    nick: `@teman${id}`,
+    category: categories[i % categories.length],
+    quote: quotes[i % quotes.length],
+    fact: facts[i % facts.length],
+    photo: resolvePersonPhoto(id)
+  };
+});
+
+const memories = [
+  { text: "Upacara bendera terakhir yang bikin seangkatan nangis sesenggukan.", meta: "Lapangan Utama — 2026" },
+  { text: "Momen mati lampu pas jam pelajaran paling membosankan, sekelas sorak bahagia.", meta: "Ruang Kelas — 2025" },
+  { text: "Panik massal gara-gara rumor ada razia HP mendadak.", meta: "Selasar Lantai 2 — 2024" },
+  { text: "Jalan santai angkatan yang berujung salah jalur sampai nyasar jauh.", meta: "Rute Luar Sekolah — 2026" },
+  { text: "Bikin video TikTok bareng guru yang akhirnya di-repost akun sekolah.", meta: "Aula Utama — 2025" },
+  { text: "Hujan deras pas pulang sekolah, halaman berubah jadi kolam renang dadakan.", meta: "Halaman Depan — 2024" }
+];
+
+try {
+  const savedMemories = JSON.parse(localStorage.getItem("yearbook-memory-photos") || "[]");
+  if (Array.isArray(savedMemories)) memories.push(...savedMemories);
+} catch (error) {
+  showToast("Foto kenangan tersimpan tidak dapat dibaca.");
+}
+
+let foundNotes = 0;
+
+setTimeout(() => {
+  const loader = document.getElementById("loader");
+  if (loader) loader.classList.add("hide");
+}, 1200);
+
+const themeBtn = document.getElementById("themeToggle");
+if (themeBtn) {
+  themeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    showToast(document.body.classList.contains("dark") ? "Mode Gelap Aktif" : "Mode Terang Aktif");
+  });
+}
+
+function renderPeople(list) {
+  const grid = document.getElementById("peopleGrid");
+  if (!grid) return;
+  if (list.length === 0) {
+    grid.innerHTML = `<div class="empty">Tidak ada nama atau kriteria yang cocok...</div>`;
+    return;
+  }
+  grid.innerHTML = list.map((p, idx) => {
+    const rot = (idx % 5 === 0 ? -2 : idx % 3 === 0 ? 2 : idx % 2 === 0 ? -1 : 1);
+    return `
+      <div class="person" style="--r:${rot}deg" onclick="openModal(${p.id})">
+        <div class="person-photo">
+          <img src="${p.photo}" alt="${p.name}" loading="lazy">
+        </div>
+        <div class="person-info">
+          <div class="num">#${String(p.id).padStart(3, '0')}</div>
+          <div class="person-name">${p.name}</div>
+          <div class="nick">${p.nick}</div>
+          <div class="quote">"${p.quote}"</div>
+          <div class="fact">💡 ${p.fact}</div>
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+const searchInput = document.getElementById("searchInput");
+const filterBtns = document.querySelectorAll(".filter");
+let activeCat = "all";
+
+function applyFilters() {
+  const query = searchInput ? searchInput.value.toLowerCase() : "";
+  const filtered = people.filter(p => {
+    const matchesCat = activeCat === "all" || p.category === activeCat;
+    const matchesQuery = p.name.toLowerCase().includes(query) || 
+                         p.quote.toLowerCase().includes(query) || 
+                         p.fact.toLowerCase().includes(query);
+    return matchesCat && matchesQuery;
+  });
+  renderPeople(filtered);
+}
+
+if (searchInput) {
+  searchInput.addEventListener("input", applyFilters);
+}
+
+filterBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    filterBtns.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    activeCat = btn.dataset.cat;
+    applyFilters();
+  });
+});
+
+function openModal(id) {
+  const person = people.find(p => p.id === id);
+  if (!person) return;
+  document.getElementById("mPhoto").src = person.photo;
+  document.getElementById("mNum").textContent = `#${String(person.id).padStart(3, '0')}`;
+  document.getElementById("mName").textContent = person.name;
+  document.getElementById("mNick").textContent = person.nick;
+  document.getElementById("mCat").textContent = `// ${person.category.toUpperCase()}`;
+  document.getElementById("mQuote").textContent = `"${person.quote}"`;
+  document.getElementById("mFact").textContent = `💡 ${person.fact}`;
+  document.getElementById("personModal").classList.add("open");
+}
+
+function closeModal() {
+  document.getElementById("personModal").classList.remove("open");
+}
+
+function closeModalOnOuter(e) {
+  if (e.target.id === "personModal") closeModal();
+}
+
+function randomPerson() {
+  const randId = Math.floor(Math.random() * people.length) + 1;
+  openModal(randId);
+}
+
+function spinRoulette() {
+  const t = document.getElementById("memoryText");
+  const m = document.getElementById("memoryMeta");
+  const card = document.querySelector(".memory-card");
+  const photo = document.getElementById("memoryPhoto");
+  let count = 0;
+  const interval = setInterval(() => {
+    const rand = memories[Math.floor(Math.random() * memories.length)];
+    t.textContent = rand.text;
+    m.textContent = rand.meta;
+    if (rand.photo) {
+      photo.src = rand.photo;
+      photo.alt = rand.text;
+      card.classList.add("has-photo");
+    } else {
+      photo.removeAttribute("src");
+      card.classList.remove("has-photo");
+    }
+    count++;
+    if (count > 12) {
+      clearInterval(interval);
+      showToast("Kenangan terpilih!");
+    }
+  }, 70);
+}
+
+function addMemoryPhoto() {
+  const input = document.getElementById("memoryPhotoInput");
+  const caption = document.getElementById("memoryCaption");
+  const file = input.files[0];
+  const text = caption.value.trim();
+
+  if (!file) {
+    showToast("Pilih foto terlebih dahulu.");
+    return;
+  }
+  if (!file.type.startsWith("image/")) {
+    showToast("File harus berupa gambar.");
+    return;
+  }
+  if (!text) {
+    showToast("Tulis cerita singkat untuk foto ini.");
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.addEventListener("load", () => {
+    const memory = {
+      text,
+      meta: `Kiriman teman — ${new Date().getFullYear()}`,
+      photo: reader.result
+    };
+    memories.push(memory);
+    try {
+      localStorage.setItem(
+        "yearbook-memory-photos",
+        JSON.stringify(memories.filter(item => item.photo))
+      );
+    } catch (error) {
+      memories.pop();
+      showToast("Foto terlalu besar untuk disimpan di browser.");
+      return;
+    }
+    input.value = "";
+    caption.value = "";
+    showToast("Foto berhasil dikirim ke Putar Kenangan!");
+  });
+  reader.addEventListener("error", () => showToast("Foto gagal dibaca."));
+  reader.readAsDataURL(file);
+}
+
+function initGuessGame() {
+  const photoBox = document.getElementById("guessPhotoBox");
+  const photo = document.getElementById("guessPhoto");
+  const answers = document.getElementById("guessAnswers");
+  const res = document.getElementById("guessResult");
+  
+  photoBox.classList.remove("revealed");
+  res.textContent = "";
+
+  const target = people[Math.floor(Math.random() * people.length)];
+  photo.src = target.photo;
+
+  let options = [target.name];
+  while (options.length < 4) {
+    const r = people[Math.floor(Math.random() * people.length)].name;
+    if (!options.includes(r)) options.push(r);
+  }
+  options.sort(() => Math.random() - 0.5);
+
+  answers.innerHTML = options.map(opt => `
+    <button class="answer" onclick="checkAnswer('${opt}', '${target.name}')">${opt}</button>
+  `).join("");
+}
+
+function checkAnswer(selected, correct) {
+  const photoBox = document.getElementById("guessPhotoBox");
+  const res = document.getElementById("guessResult");
+  const btns = document.querySelectorAll(".answer");
+
+  photoBox.classList.add("revealed");
+  btns.forEach(b => {
+    b.disabled = true;
+    if (b.textContent === correct) b.classList.add("correct");
+    else if (b.textContent === selected) b.classList.add("wrong");
+  });
+
+  if (selected === correct) {
+    res.textContent = "🎉 TEPAT SEKALI!";
+    res.style.color = "var(--green)";
+  } else {
+    res.textContent = `❌ SALAH! Ini adalah ${correct}`;
+    res.style.color = "var(--red)";
+  }
+}
+
+function findNote(el, id) {
+  if (!el.classList.contains("found")) {
+    el.classList.add("found");
+    foundNotes++;
+    document.getElementById("huntCounter").textContent = `TERTEMUKAN: ${foundNotes} / 5`;
+    showToast(`Catatan #${id} ditemukan!`);
+  }
+}
+
+function toggleSecret() {
+  const door = document.getElementById("secretDoor");
+  const msg = document.getElementById("secretMsg");
+  door.classList.toggle("open");
+  msg.classList.toggle("show");
+}
+
+function addSticky() {
+  const input = document.getElementById("guestInput");
+  const wall = document.getElementById("guestWall");
+  if (!input.value.trim()) return;
+
+  const rot = Math.floor(Math.random() * 12) - 6;
+  const sticky = document.createElement("div");
+  sticky.className = "sticky";
+  sticky.style.setProperty("--r", `${rot}deg`);
+  sticky.textContent = `"${input.value}" — Teman Angkatan`;
+
+  wall.prepend(sticky);
+  input.value = "";
+  showToast("Pesan berhasil ditempel!");
+}
+
+function showFinalSecret() {
+  document.getElementById("finalSecret").classList.add("visible");
+}
+
+function showToast(msg) {
+  const toast = document.getElementById("toast");
+  toast.textContent = msg;
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 2500);
+}
+
+window.onload = () => {
+  renderPeople(people);
+  initGuessGame();
+};
+</script>
+<script src="./yearbook-data.js"></script>
+<script src="./admin.js"></script>
+</body>
+</html>

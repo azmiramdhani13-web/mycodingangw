@@ -1,0 +1,1400 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yearbook Khatulistiwa Generations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #050b16;
+        --bg-soft: rgba(17, 25, 40, 0.74);
+        --panel: rgba(255, 255, 255, 0.04);
+        --panel-strong: rgba(255, 255, 255, 0.1);
+        --line: rgba(255, 255, 255, 0.12);
+        --text: #edf5ff;
+        --muted: #b5c6df;
+        --cyan: #78d8ff;
+        --blue: #496dff;
+        --violet: #8a7dff;
+        --pink: #ff7eb6;
+        --gold: #f8d26a;
+        --white: #ffffff;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: "Manrope", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(78, 121, 255, 0.22), transparent 24%),
+          radial-gradient(circle at top right, rgba(120, 216, 255, 0.12), transparent 20%),
+          linear-gradient(180deg, rgba(11, 18, 30, 0.96) 0%, rgba(15, 24, 39, 0.92) 32%, rgba(12, 19, 29, 0.94) 100%);
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image:
+          radial-gradient(2px 2px at 12% 22%, rgba(255,255,255,0.9) 0, transparent 100%),
+          radial-gradient(1.6px 1.6px at 32% 56%, rgba(120,216,255,0.95) 0, transparent 100%),
+          radial-gradient(2px 2px at 58% 18%, rgba(255,255,255,0.86) 0, transparent 100%),
+          radial-gradient(1.8px 1.8px at 70% 38%, rgba(255,255,255,0.85) 0, transparent 100%),
+          radial-gradient(2px 2px at 82% 28%, rgba(120,216,255,0.9) 0, transparent 100%),
+          radial-gradient(1.4px 1.4px at 88% 72%, rgba(255,255,255,0.86) 0, transparent 100%),
+          radial-gradient(2.4px 2.4px at 22% 76%, rgba(255,255,255,0.8) 0, transparent 100%);
+        opacity: 0.9;
+        pointer-events: none;
+        animation: twinkle 8s ease-in-out infinite alternate;
+      }
+      @keyframes twinkle { 0% { opacity: 0.5; } 100% { opacity: 1; } }
+      @keyframes floatY { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-12px); } }
+      a { text-decoration: none; color: inherit; }
+      img { max-width: 100%; display: block; }
+      .container { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+      .topbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 80;
+        padding: 18px 0 0;
+        background: transparent;
+        backdrop-filter: none;
+        border-bottom: none;
+        box-shadow: none;
+        pointer-events: none;
+        transition: background 0.25s ease, padding 0.25s ease;
+      }
+      .topbar.scrolled {
+        background: transparent;
+        border-color: transparent;
+        padding: 14px 0 0;
+      }
+      .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 18px;
+        position: relative;
+        pointer-events: none;
+      }
+      .brand {
+        position: fixed;
+        top: 18px;
+        left: 26px;
+        z-index: 90;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 800;
+        pointer-events: auto;
+        transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
+        transform: translateY(0) scale(1);
+        opacity: 1;
+        filter: drop-shadow(0 8px 25px rgba(0,0,0,0.18));
+      }
+      .brand.scrolled {
+        transform: translateY(-2px) scale(0.94);
+        opacity: 0.96;
+        filter: drop-shadow(0 6px 16px rgba(0,0,0,0.12));
+      }
+      .brand-logo-wrap {
+        width: clamp(52px, 5vw, 72px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        overflow: hidden;
+        background: rgba(255,255,255,0.02);
+        box-shadow: 0 10px 24px rgba(0,0,0,0.2);
+      }
+      .brand-logo {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        border-radius: 50%;
+        clip-path: circle(47% at 50% 50%);
+        filter: drop-shadow(0 10px 18px rgba(0,0,0,0.3));
+      }
+      .brand-text {
+        font-size: 0.96rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .nav-links {
+        display: none !important;
+      }
+      .nav-cta {
+        display: none !important;
+      }
+      .nav-toggle { display: none !important; }
+      main {
+        padding-top: 72px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 20px;
+        border-radius: 999px;
+        font-weight: 800;
+        border: none;
+        cursor: pointer;
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, var(--cyan), var(--blue), var(--violet));
+        color: var(--white);
+        box-shadow: 0 18px 32px rgba(73, 109, 255, 0.32);
+      }
+      .btn-secondary {
+        background: rgba(255,255,255,0.05);
+        color: var(--text);
+        border: 1px solid rgba(255,255,255,0.12);
+        backdrop-filter: blur(12px);
+      }
+      .kicker {
+        display: inline-flex;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(120, 216, 255, 0.1);
+        color: var(--cyan);
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 800;
+        border: 1px solid rgba(120,216,255,0.18);
+      }
+      h1, h2, h3, h4 { font-family: "Space Grotesk", sans-serif; letter-spacing: -0.06em; margin: 0; }
+      .hero {
+        position: relative;
+        padding: 54px 0 32px;
+        background:
+          radial-gradient(circle at center, rgba(72, 105, 255, 0.18), transparent 30%),
+          linear-gradient(180deg, rgba(12,20,34,0.06), rgba(12,20,34,0.32));
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 50% 35%, rgba(99, 143, 255, 0.18), transparent 30%);
+        pointer-events: none;
+      }
+      .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 36px; align-items: center; }
+      .hero-copy h1 { font-size: clamp(3rem, 5vw, 6rem); line-height: 0.9; margin: 18px 0; color: var(--text); }
+      .hero-copy h1 .accent { color: var(--cyan); text-shadow: 0 0 18px rgba(120,216,255,0.45); }
+      .hero-copy p { max-width: 540px; font-size: 1.08rem; color: rgba(237,245,255,0.75); }
+      .hero-actions { display: none; }
+      .hero-meta { display: flex; gap: 18px; margin-top: 28px; flex-wrap: wrap; }
+      .meta-item {
+        min-width: 100px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 18px;
+        padding: 14px 16px;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 10px 24px rgba(10,15,24,0.14);
+        backdrop-filter: blur(10px);
+      }
+      .meta-item strong { display: block; font-size: 1.6rem; color: var(--white); }
+      .meta-item span { font-size: 0.8rem; color: rgba(237,245,255,0.7); }
+      .hero-visual { min-height: 500px; position: relative; }
+      .photo-stack { position: relative; height: 100%; }
+      .badge-card {
+        position: absolute;
+        right: 30px;
+        top: 20px;
+        z-index: 3;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.12);
+        color: var(--white);
+        padding: 12px 18px;
+        border-radius: 18px;
+        backdrop-filter: blur(14px);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.18);
+      }
+      .badge-card strong, .badge-card span { display: block; }
+      .badge-card strong { font-size: 0.76rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cyan); }
+      .badge-card span { font-size: 1.8rem; }
+      .photo-card {
+        position: absolute;
+        overflow: hidden;
+        border-radius: 28px;
+        border: 5px solid rgba(120,216,255,0.26);
+        box-shadow: 0 25px 55px rgba(0,0,0,0.45);
+        animation: floatY 6s ease-in-out infinite;
+      }
+      .photo-main { width: min(88%, 520px); height: 470px; left: 18px; top: 30px; }
+      .photo-small { width: 220px; height: 220px; right: 0; bottom: 20px; border-color: rgba(255,126,182,0.24); animation-delay: 1s; }
+      .photo-card img { width: 100%; height: 100%; object-fit: cover; }
+      .section { padding: 110px 0 30px; }
+      .section-heading { margin-bottom: 28px; }
+      .section-heading h2 { font-size: clamp(2.2rem, 3vw, 3.4rem); line-height: 1; }
+      .feature-strip {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0,1fr));
+        gap: 14px;
+        padding: 26px 0;
+      }
+      .feature-pill {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 999px;
+        padding: 14px 18px;
+        color: rgba(237,245,255,0.8);
+        backdrop-filter: blur(10px);
+      }
+      .feature-pill strong { color: var(--white); }
+      .about-grid, .welcome-grid, .detail-grid, .info-panel { display: grid; gap: 28px; }
+      .about-grid { grid-template-columns: 1fr 1fr; }
+      .image-panel {
+        position: relative;
+        border-radius: 30px;
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 25px 55px rgba(0,0,0,0.32);
+      }
+      .image-panel img { width: 100%; height: 100%; min-height: 460px; object-fit: cover; }
+      .quote-box {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        background: rgba(10, 15, 24, 0.44);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 20px;
+        padding: 16px 18px;
+        backdrop-filter: blur(12px);
+      }
+      .welcome-grid { grid-template-columns: 1fr 1fr; }
+      .welcome-card, .value-card, .moment-card, .option-card, .student-card, .detail-panel {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 26px;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+      }
+      .welcome-card {
+        padding: 28px 26px;
+      }
+      .welcome-role { display: inline-block; margin-bottom: 12px; color: var(--cyan); font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.72rem; }
+      .welcome-card p { color: rgba(237,245,255,0.78); }
+      .welcome-signature { margin-top: 18px; font-weight: 800; color: var(--white); }
+      .value-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 20px; }
+      .value-card { padding: 24px 18px; }
+      .value-icon { font-size: 2rem; margin-bottom: 12px; }
+      .value-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
+      .value-card p { margin: 0; color: rgba(237,245,255,0.72); }
+      .moments-grid, .gallery-grid, .behind-grid, .memory-grid, .option-grid { display: grid; gap: 18px; }
+      .moments-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .moment-card { overflow: hidden; }
+      .moment-card img { width: 100%; height: 260px; object-fit: cover; }
+      .moment-body { padding: 18px; }
+      .moment-body span { color: var(--cyan); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+      .moment-body h3 { margin-top: 6px; margin-bottom: 10px; font-size: 1.4rem; }
+      .moment-body p { margin: 0; color: rgba(237,245,255,0.72); }
+      .profile-section { padding-top: 90px; }
+      .profile-toolbar {
+        display: grid;
+        grid-template-columns: 1.4fr 0.7fr 0.7fr;
+        gap: 14px;
+        margin: 24px 0 22px;
+      }
+      .search-box, .filter-box { position: relative; }
+      .search-box input, .filter-box select {
+        width: 100%;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 18px;
+        color: var(--text);
+        padding: 16px 18px;
+        font: inherit;
+      }
+      .search-box input::placeholder { color: rgba(237,245,255,0.5); }
+      .search-box input:focus, .filter-box select:focus { outline: 2px solid rgba(120,216,255,0.2); }
+      .profile-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+      .student-card { padding: 18px; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+      .student-card:hover { transform: translateY(-8px); box-shadow: 0 22px 40px rgba(0,0,0,0.18); }
+      .student-card img { width: 100%; height: 270px; object-fit: cover; border-radius: 18px; }
+      .student-card-body { padding-top: 16px; }
+      .student-header { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+      .profile-badge {
+        display: inline-flex;
+        padding: 7px 10px;
+        border-radius: 999px;
+        font-size: 0.74rem;
+        color: var(--cyan);
+        background: rgba(120,216,255,0.08);
+        border: 1px solid rgba(120,216,255,0.18);
+      }
+      .profile-nickname { color: var(--cyan); font-size: 0.82rem; font-weight: 700; }
+      .student-card-body h3 { font-size: 1.5rem; color: var(--white); }
+      .profile-tag-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+      .profile-tag { display: inline-flex; border-radius: 999px; padding: 6px 10px; background: rgba(255,255,255,0.04); color: rgba(237,245,255,0.73); border: 1px solid rgba(255,255,255,0.08); font-size: 0.75rem; }
+      .profile-quote { margin: 14px 0 16px; color: rgba(237,245,255,0.76); font-style: italic; }
+      .profile-known { margin: 0 0 16px; color: rgba(237,245,255,0.72); }
+      .profile-link { display: inline-flex; padding: 11px 14px; background: linear-gradient(135deg, rgba(120,216,255,0.18), rgba(138,125,255,0.18)); border: 1px solid rgba(120,216,255,0.18); border-radius: 999px; font-weight: 800; }
+      .option-grid { grid-template-columns: repeat(4, minmax(0,1fr)); margin-top: 24px; }
+      .option-card { padding: 22px 18px; }
+      .option-card .chip { display: inline-block; font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cyan); margin-bottom: 12px; }
+      .option-card h3 { font-size: 1.4rem; margin-bottom: 10px; }
+      .option-card p { margin: 0; color: rgba(237,245,255,0.7); }
+      .detail-panel { margin-top: 32px; padding: 26px; }
+      .detail-grid { grid-template-columns: 300px 1fr; }
+      .profile-portrait { width: 100%; height: 360px; object-fit: cover; border-radius: 24px; border: 1px solid rgba(255,255,255,0.12); }
+      .detail-info { display: grid; gap: 18px; }
+      .detail-top { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+      .title-chip {
+        display: inline-flex;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(120,216,255,0.12);
+        color: var(--cyan);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .detail-info h3 { font-size: clamp(2rem, 3vw, 3.4rem); }
+      .detail-quote {
+        background: rgba(120,216,255,0.06);
+        border: 1px solid rgba(120,216,255,0.18);
+        border-radius: 20px;
+        padding: 16px 18px;
+        color: rgba(237,245,255,0.8);
+      }
+      .meta-list { display: grid; gap: 10px; }
+      .meta-item-detail {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+      .meta-label { font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(237,245,255,0.62); font-weight: 800; }
+      .meta-value { font-weight: 800; }
+      .social-list { display: flex; flex-wrap: wrap; gap: 10px; }
+      .social-pill {
+        display: inline-flex;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        color: rgba(237,245,255,0.72);
+      }
+      .editor-shell {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 28px;
+        padding: 24px;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+      }
+      .editor-form {
+        display: grid;
+        gap: 18px;
+      }
+      .editor-field-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+      .field-group {
+        display: grid;
+        gap: 8px;
+      }
+      .field-group label {
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(237,245,255,0.7);
+        font-weight: 800;
+      }
+      .field-group input,
+      .field-group select,
+      .field-group textarea {
+        width: 100%;
+        background: rgba(5,11,22,0.5);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 14px;
+        padding: 12px 14px;
+        color: var(--text);
+        font: inherit;
+      }
+      .field-group textarea {
+        min-height: 88px;
+        resize: vertical;
+      }
+      .editor-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .footer {
+        padding: 40px 0 90px;
+      }
+      .footer-wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.08); }
+      .footer-links { display: flex; flex-wrap: wrap; gap: 18px; color: rgba(237,245,255,0.75); }
+      @media (max-width: 980px) {
+        .hero-grid,
+        .about-grid,
+        .welcome-grid,
+        .value-grid,
+        .profile-grid,
+        .detail-grid,
+        .feature-strip,
+        .option-grid,
+        .moments-grid { grid-template-columns: 1fr; }
+        .profile-toolbar { grid-template-columns: 1fr; }
+        .nav-links { display: none; }
+        .nav-toggle { display: flex; }
+        .nav-links.is-open {
+          display: flex;
+          position: absolute;
+          top: calc(100% + 8px);
+          right: 0;
+          left: 0;
+          flex-direction: column;
+          background: rgba(10, 15, 24, 0.95);
+          border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 18px;
+          padding: 16px 18px;
+          box-shadow: 0 20px 42px rgba(0,0,0,0.28);
+        }
+      }
+      @media (max-width: 640px) {
+        .topbar { padding: 14px 0; }
+        .hero { padding-top: 42px; }
+        .photo-main { width: 100%; left: 0; }
+        .photo-small { width: 160px; height: 160px; right: 10px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar" aria-label="Header utama">
+      <div class="container navbar">
+        <a href="#home" class="brand" aria-label="Khatulistiwa Generations home">
+          <span class="brand-logo-wrap">
+            <img class="brand-logo" src="assets/logo-khatulistiwa.jpg" alt="Logo Khatulistiwa" />
+          </span>
+          <span class="brand-text">Khatulistiwa</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <div class="kicker">Khatulistiwa Generations</div> 
+            <h1>Welcome to <span class="accent">one chapter</span> of Khatulistiwa Generations.</h1>
+            <p>
+              Yearbook angkatan kami menorehkan jejak kebersamaan, semangat belajar, dan momen tak terlupakan yang terus hidup di setiap ingatan.
+            </p>
+            <div class="hero-meta">
+              <div class="meta-item"><strong>145</strong><span>Alumni</span></div>
+              <div class="meta-item"><strong>2024</strong><span>Angkatan</span></div>
+              <div class="meta-item"><strong>∞</strong><span>Kenangan</span></div>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Kolase foto angkatan">
+            <div class="photo-stack">
+              
+              </div>
+              <div class="photo-card photo-main">
+                <img src="https://cdn.phototourl.com/member/2026-08-29-12ced9b1-4ab2-4d2c-a91f-be7ccf549986.jpg" alt="Foto kegiatan siswa" />
+              </div>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="angkatan">
+        <div class="container">
+          <div class="section-heading">
+            <div class="kicker">Behind the scenes</div>
+            <h2>Di balik hari sekolah, ada cerita yang lebih besar daripada sekadar nilai.</h2>
+          </div>
+
+          <div class="feature-strip">
+            
+          </div>
+
+          <div class="about-grid">
+            <div class="image-panel">
+              <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80" alt="Kelas dan kebersamaan" />
+              <div class="quote-box">
+                <strong style="display:block; color: var(--cyan); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Memori kami</strong>
+                <span style="font-size: 1.2rem; font-weight: 700;">“Bukan hanya sekolah yang meninggalkan jejak, tapi orang-orang yang pernah berjalan bersama di dalamnya.”</span>
+              </div>
+            </div>
+
+            <div class="welcome-card">
+              <span class="welcome-role">Sambutan</span>
+              <h3 style="font-size: clamp(2rem, 3vw, 3.3rem); margin-bottom: 18px;">Selamat datang di halaman angkatan kami.</h3>
+              <p>Setiap orang datang dengan cerita, harapan, dan semangatnya masing-masing. Di sini, kami merangkum perjalanan belajar, kebersamaan, dan proses tumbuh yang tak bisa dipisahkan dari masa sekolah kami.</p>
+              <p style="margin-top: 12px;">Dari hari pertama masuk hingga hari terakhir bersama, ada banyak momen kecil yang akhirnya membentuk identitas kami sebagai satu angkatan.</p>
+              <div class="welcome-signature">— Khatulistiwa Generations 2024</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="sambutan">
+        <div class="container">
+          <div class="section-heading">
+            <div class="kicker">Nilai kami</div>
+            <h2>Kenangan yang membentuk karakter kami.</h2>
+          </div>
+          <div class="value-grid">
+            <div class="value-card">
+              <div class="value-icon">📚</div>
+              <h3>Belajar bersama</h3>
+              <p>Selalu ada ruang untuk mencoba, bertanya, dan tumbuh di setiap proses.</p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">🤝</div>
+              <h3>Solidaritas</h3>
+              <p>Kebersamaan kami dibangun lewat bantuan, saling menghargai, dan semangat untuk maju.</p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">📸</div>
+              <h3>Jejak kebersamaan</h3>
+              <p>Setiap foto adalah bukti bahwa kami pernah tumbuh bersama.</p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">✨</div>
+              <h3>Momen tak terlupakan</h3>
+              <p>Dari hari pertama sampai momen paling berkesan, semua tercatat di sini.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="moments">
+        <div class="container">
+          <div class="section-heading">
+            <div class="kicker">Kenangan terbaik</div>
+            <h2>Momen yang bikin kebersamaan kami tak bisa melupakannya.</h2>
+          </div>
+          <div class="moments-grid">
+            <article class="moment-card">
+              <img src="https://cdn.phototourl.com/member/2026-08-29-9e5eedc0-c48b-4db0-ae98-4556a900dd39.jpg" alt="Momen belajar bersama" />
+              <div class="moment-body"><span>Study Pass</span><h3>Pasaran Bulan Ramadhan</h3><p>Jam belajar bersama yang penuh canda dan semangat.</p></div>
+            </article>
+            <article class="moment-card">
+              <img src="https://cdn.phototourl.com/member/2026-08-29-4ff57f5a-1804-4a52-acdb-1df2c388b9fe.jpg" alt="Organisasi" />
+              <div class="moment-body"><span>Togetherness</span><h3>Pergi Kondangan Pengurus</h3><p>Setiap usaha kami terukir dalam prestasi dan semangat kebersamaan.</p></div>
+            </article>
+            <article class="moment-card">
+              <img src="https://cdn.phototourl.com/member/2026-08-29-bd93ca31-81c9-4d40-bccb-e798df87927c.jpg" alt="Pentas sekolah" />
+              <div class="moment-body"><span>go to the beach</span><h3>ulin pedah aya duit</h3><p>Detik paling berkesan ketika semua orang datang dengan semangat.</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="options">
+        <div class="container">
+          <div class="section-heading">
+            <div class="kicker">Kenangan paling berharga</div>
+            <h2>Setiap momen kecil adalah bagian dari cerita angkatan kami.</h2>
+          </div>
+
+          <div class="option-grid">
+            <div class="option-card">
+              <span class="chip">Kelas</span>
+              <h3>Ruangan belajar</h3>
+              <p>Tempat kami tumbuh, berdiskusi, dan saling mendorong sampai hari terakhir.</p>
+            </div>
+            <div class="option-card">
+              <span class="chip">Ekskul</span>
+              <h3>Semangat bakat</h3>
+              <p>Prestasi, persahabatan, dan kerja keras yang membentuk karakter kami.</p>
+            </div>
+            <div class="option-card">
+              <span class="chip">Study Tour</span>
+              <h3>Jelajah bersama</h3>
+              <p>Hari-hari penuh tawa dan pengalaman baru yang membuat kami lebih dekat.</p>
+            </div>
+            <div class="option-card">
+              <span class="chip">Puncak</span>
+              <h3>Hingga akhir</h3>
+              <p>Kenangan besar yang terus hidup lewat cerita, foto, dan semangat bersama.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="profile-section" id="students">
+        <div class="container">
+          <div class="section-heading">
+            <div class="kicker">Profil alumni</div>
+            <h2>Wajah yang memimpin kenangan kami.</h2>
+          </div>
+
+          <div class="profile-toolbar">
+            <label class="search-box">
+              <input id="searchInput" type="search" placeholder="Cari nama, julukan, atau kelas..." aria-label="Cari siswa" />
+            </label>
+            <label class="filter-box">
+              <select id="classFilter" aria-label="Filter kelas">
+                <option value="">Semua kelas</option>
+              </select>
+            </label>
+            <label class="filter-box">
+              <select id="majorFilter" aria-label="Filter jurusan">
+                <option value="">Semua jurusan</option>
+              </select>
+            </label>
+          </div>
+
+          <div id="profileGrid" class="profile-grid" aria-live="polite"></div>
+
+          <div class="detail-panel" id="detailPanel">
+            <div class="detail-grid">
+              <div>
+                <img id="detailImage" class="profile-portrait" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" alt="Profil alumni" />
+              </div>
+              <div class="detail-info">
+                <div class="detail-top">
+                  <span class="title-chip" id="detailClass">XI-2</span>
+                  <span class="title-chip" id="detailMajor">IPA</span>
+                </div>
+                <h3 id="detailName">Rafi Pratama</h3>
+                <div class="detail-quote" id="detailQuote">“Kelas bukan hanya tempat belajar, tapi tempat kenangan dibuat.”</div>
+                <div class="meta-list">
+                  <div class="meta-item-detail"><span class="meta-label">Julukan</span><span class="meta-value" id="detailNickname">Rafi</span></div>
+                  <div class="meta-item-detail"><span class="meta-label">Motto</span><span class="meta-value" id="detailMotto">Berani maju, tetap rendah hati.</span></div>
+                  <div class="meta-item-detail"><span class="meta-label">Paling dikenal karena</span><span class="meta-value" id="detailKnown">Selalu siap membantu teman dan memimpin semangat kelas.</span></div>
+                </div>
+                <div>
+                  <div class="meta-label" style="margin-bottom: 10px;">Media sosial</div>
+                  <div class="social-list">
+                    <span class="social-pill" id="detailInstagram">@rafi.pratama</span>
+                    <span class="social-pill" id="detailTiktok">@rafi.gram</span>
+                    <span class="social-pill" id="detailEmail">rafi@email.com</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="editor-data">
+        <div class="container">
+          <div class="section-heading">
+            <div class="kicker">Kelola data</div>
+            <h2>Isi data pribadi dan atur ulang profil siswa dari browser.</h2>
+          </div>
+
+          <div class="editor-shell" style="margin-bottom: 22px;">
+            <form id="personalProfileForm" class="editor-form">
+              <div class="field-group">
+                <label for="personalFullName">Data pribadi</label>
+                <p style="margin: 0; color: rgba(237,245,255,0.72);">Isi identitas Anda agar halaman yearbook ikut berubah sesuai data yang Anda masukkan.</p>
+              </div>
+
+              <div class="editor-field-grid">
+                <div class="field-group">
+                  <label for="personalFullName">Nama lengkap</label>
+                  <input id="personalFullName" type="text" placeholder="Masukkan nama lengkap" />
+                </div>
+                <div class="field-group">
+                  <label for="personalNickname">Nama panggilan</label>
+                  <input id="personalNickname" type="text" placeholder="Masukkan panggilan" />
+                </div>
+                <div class="field-group">
+                  <label for="personalPhotoUrl">URL foto</label>
+                  <input id="personalPhotoUrl" type="url" placeholder="https://..." />
+                </div>
+                <div class="field-group">
+                  <label for="personalEmail">Email</label>
+                  <input id="personalEmail" type="email" placeholder="you@example.com" />
+                </div>
+                <div class="field-group">
+                  <label for="personalInstagram">Instagram</label>
+                  <input id="personalInstagram" type="text" placeholder="@username" />
+                </div>
+                <div class="field-group">
+                  <label for="personalTiktok">TikTok</label>
+                  <input id="personalTiktok" type="text" placeholder="@username" />
+                </div>
+                <div class="field-group" style="grid-column: 1 / -1;">
+                  <label for="personalMotto">Motto</label>
+                  <textarea id="personalMotto" placeholder="Tuliskan motto Anda"></textarea>
+                </div>
+                <div class="field-group" style="grid-column: 1 / -1;">
+                  <label for="personalFavoriteQuote">Quote favorit</label>
+                  <textarea id="personalFavoriteQuote" placeholder="Tuliskan quote favorit Anda"></textarea>
+                </div>
+                <div class="field-group" style="grid-column: 1 / -1;">
+                  <label for="personalKnownFor">Dikenal karena</label>
+                  <textarea id="personalKnownFor" placeholder="Ceritakan keunggulan atau sifat Anda"></textarea>
+                </div>
+              </div>
+
+              <div class="editor-actions">
+                <button type="submit" class="btn btn-primary">Simpan data pribadi</button>
+                <button type="button" class="btn btn-secondary" id="resetAllDataBtn">Reset semua</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="editor-shell">
+            <form id="studentEditorForm" class="editor-form">
+              <div class="field-group">
+                <label for="editStudentSelect">Pilih siswa</label>
+                <select id="editStudentSelect" aria-label="Pilih siswa"></select>
+              </div>
+
+              <div class="editor-field-grid">
+                <div class="field-group">
+                  <label for="editFullName">Nama lengkap</label>
+                  <input id="editFullName" type="text" />
+                </div>
+                <div class="field-group">
+                  <label for="editNickname">Nama panggilan</label>
+                  <input id="editNickname" type="text" />
+                </div>
+                <div class="field-group">
+                  <label for="editClassName">Kelas</label>
+                  <input id="editClassName" type="text" />
+                </div>
+                <div class="field-group">
+                  <label for="editMajor">Jurusan</label>
+                  <input id="editMajor" type="text" />
+                </div>
+                <div class="field-group">
+                  <label for="editPhotoUrl">URL foto</label>
+                  <input id="editPhotoUrl" type="url" />
+                </div>
+                <div class="field-group">
+                  <label for="editEmail">Email</label>
+                  <input id="editEmail" type="email" />
+                </div>
+                <div class="field-group">
+                  <label for="editInstagram">Instagram</label>
+                  <input id="editInstagram" type="text" />
+                </div>
+                <div class="field-group">
+                  <label for="editTiktok">TikTok</label>
+                  <input id="editTiktok" type="text" />
+                </div>
+                <div class="field-group" style="grid-column: 1 / -1;">
+                  <label for="editMotto">Motto</label>
+                  <textarea id="editMotto"></textarea>
+                </div>
+                <div class="field-group" style="grid-column: 1 / -1;">
+                  <label for="editFavoriteQuote">Quote favorit</label>
+                  <textarea id="editFavoriteQuote"></textarea>
+                </div>
+                <div class="field-group" style="grid-column: 1 / -1;">
+                  <label for="editKnownFor">Dikenal karena</label>
+                  <textarea id="editKnownFor"></textarea>
+                </div>
+              </div>
+
+              <div class="editor-actions">
+                <button type="button" class="btn btn-secondary" id="addStudentBtn">Tambah siswa baru</button>
+                <button type="button" class="btn btn-secondary" id="deleteStudentBtn">Hapus siswa</button>
+                <button type="submit" class="btn btn-primary">Simpan perubahan</button>
+                <button type="button" class="btn btn-secondary" id="exportStudentDataBtn">Export JSON</button>
+                <button type="button" class="btn btn-secondary" id="resetStudentEditor">Reset ke default</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-wrap">
+        <div>
+          <div class="kicker">Yearbook 2026</div>
+          <h3 style="margin-top: 14px;">Hadirkan momen kita di tahun ini.</h3>
+        </div>
+        <div class="footer-links">
+          <a href="#home">Sekolah</a>
+          <a href="#students">Alumni</a>
+          <a href="#moments">Kenangan</a>
+          <a href="#options">Konsep</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const topbar = document.querySelector('.topbar');
+      const brand = document.querySelector('.brand');
+      const navToggle = document.querySelector('.nav-toggle');
+      const navLinks = document.querySelector('.nav-links');
+
+      if (topbar || brand) {
+        function updateHeaderState() {
+          const scrolled = window.scrollY > 18;
+          if (topbar) topbar.classList.toggle('scrolled', scrolled);
+          if (brand) brand.classList.toggle('scrolled', scrolled);
+        }
+
+        window.addEventListener('scroll', updateHeaderState, { passive: true });
+        updateHeaderState();
+      }
+
+      if (navToggle && navLinks) {
+        function closeMobileMenu() {
+          navLinks.classList.remove('is-open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+
+        navToggle.addEventListener('click', () => {
+          const isOpen = navLinks.classList.toggle('is-open');
+          navToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        document.addEventListener('click', (event) => {
+          if (!navLinks.contains(event.target) && !navToggle.contains(event.target)) {
+            closeMobileMenu();
+          }
+        });
+      }
+
+      const fallbackSvg = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="#78d8ff"/>
+              <stop offset="100%" stop-color="#8a7dff"/>
+            </linearGradient>
+          </defs>
+          <rect width="800" height="600" fill="#0b1220"/>
+          <rect x="40" y="40" width="720" height="520" rx="32" fill="url(#g)" opacity="0.35"/>
+          <circle cx="290" cy="220" r="120" fill="#edf5ff" opacity="0.15"/>
+          <circle cx="540" cy="350" r="88" fill="#edf5ff" opacity="0.12"/>
+          <text x="50%" y="50%" text-anchor="middle" fill="#edf5ff" font-family="Arial, sans-serif" font-size="34" font-weight="700">Yearbook Memory</text>
+        </svg>
+      `)}`;
+
+      document.querySelectorAll('img').forEach((img) => {
+        img.addEventListener('error', () => {
+          if (!img.dataset.fallbackApplied) {
+            img.dataset.fallbackApplied = 'true';
+            img.src = fallbackSvg;
+            img.style.filter = 'saturate(1.1)';
+          }
+        }, { once: true });
+      });
+
+      const STORAGE_KEY = 'khatulistiwa-yearbook-data';
+      const PERSONAL_STORAGE_KEY = 'khatulistiwa-personal-data';
+      const defaultClassList = ['X-1', 'X-2', 'X-3', 'XI-1', 'XI-2', 'XI-3', 'XI-4', 'XII-1', 'XII-2', 'XII-3', 'XII-4'];
+      const defaultMajorList = ['IPA', 'IPS', 'Bahasa'];
+      const realStudentNames = Array.from({ length: 145 }, (_, index) => {
+        const firstNames = ['Ayu', 'Budi', 'Citra', 'Dimas', 'Eka', 'Fajar', 'Gita', 'Hendra', 'Intan', 'Joko', 'Kartika', 'Lukman', 'Maya', 'Nanda', 'Oki', 'Putri', 'Qori', 'Rafi', 'Sinta', 'Taufik', 'Umi', 'Vina', 'Wahyu', 'Xena', 'Yogi', 'Zahra', 'Aldi', 'Bela', 'Candra', 'Dewi', 'Erlangga', 'Fira', 'Gilang', 'Hafiz', 'Indra', 'Jasmine', 'Krisna', 'Lina', 'Miko', 'Naila', 'Oscar', 'Purnama', 'Qita', 'Rendra', 'Sari', 'Tika', 'Ujang', 'Vicky', 'Wulan', 'Yusuf', 'Zaki', 'Aisyah', 'Bram', 'Clara', 'Danu', 'Evan', 'Fikri', 'Gadis', 'Halim', 'Irfan', 'Jihan', 'Kiko', 'Lala', 'Mia', 'Niko', 'Opal', 'Pram', 'Qila', 'Rangga', 'Salsa', 'Tari', 'Ulfa', 'Vandi', 'Winda', 'Yanti', 'Zulfan', 'Ari', 'Bintang', 'Cecilia', 'Dian', 'Egi', 'Farhan', 'Ghea', 'Hafsa', 'Icha', 'Jaga', 'Kurnia', 'Lutfi', 'Mila', 'Naufal', 'Olivia', 'Pandu', 'Qonita', 'Rina', 'Sultan', 'Tania', 'Umar', 'Vera', 'Wira', 'Yasmin', 'Zain', 'Alfa', 'Bima', 'Ciko', 'Desta', 'Esha', 'Fadlian', 'Gisela', 'Haryo', 'Ical', 'Jelita', 'Kamil', 'Lolis', 'Mira', 'Nadya', 'Priska', 'Qomar', 'Riski', 'Sukma', 'Tata', 'Uci', 'Vian', 'Wafi', 'Yola', 'Alya', 'Bagas', 'Cinta', 'Dewa', 'Elang', 'Fani', 'Garda', 'Helmi', 'Inez', 'Jaka', 'Kania', 'Lio', 'Nesa', 'Ozan', 'Pia', 'Qiva', 'Raka', 'Sena'];
+        const lastNames = ['Saputra', 'Wijaya', 'Rahmawati', 'Pratama', 'Nugroho', 'Kurniawan', 'Putri', 'Hidayat', 'Maharani', 'Siregar', 'Firmansyah', 'Lestari', 'Simanjuntak', 'Ramadhan', 'Gunawan', 'Maulana', 'Hartono', 'Astuti', 'Susanti', 'Azhari'];
+        const firstName = firstNames[index % firstNames.length];
+        const lastName = lastNames[(index * 3) % lastNames.length];
+        return `${firstName} ${lastName}`;
+      });
+      const studentPhotoPool = [
+        'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80',
+        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80',
+        'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80',
+        'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80',
+        'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&q=80',
+        'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80',
+        'https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=900&q=80'
+      ];
+
+      let alumniData = [];
+
+      function generateFallbackStudents(count = 145) {
+        return Array.from({ length: count }, (_, index) => {
+          const id = index + 1;
+          const fullName = realStudentNames[id - 1] || `Siswa ${String(id).padStart(3, '0')}`;
+          const firstName = fullName.split(' ')[0];
+          const lastName = fullName.split(' ').slice(1).join(' ');
+          const className = defaultClassList[id % defaultClassList.length];
+          const major = defaultMajorList[id % defaultMajorList.length];
+
+          return {
+            id,
+            full_name: fullName,
+            nickname: firstName,
+            class_name: className,
+            major,
+            graduation_year: 2026,
+            motto: 'Belajar tanpa lelah, tumbuh tanpa menyerah.',
+            favorite_quote: 'Jangan menunggu sempurna untuk mulai.',
+            short_bio: 'Aktif, kreatif, dan selalu siap membantu teman dalam setiap proses.',
+            known_for: 'Senantiasa menjaga semangat dan kebersamaan di kelas.',
+            photo_url: studentPhotoPool[(id - 1) % studentPhotoPool.length],
+            instagram: `@${firstName.toLowerCase()}${lastName.toLowerCase()}`,
+            tiktok: `@${firstName.toLowerCase()}${lastName.toLowerCase()}`,
+            email: `${firstName.toLowerCase()}.${lastName.toLowerCase()}${id}@example.com`
+          };
+        });
+      }
+
+      function normalizeStudents(records) {
+        return records.map((student, index) => {
+          const id = Number(student.id ?? index + 1);
+          const recordName = typeof student.full_name === 'string' && student.full_name.trim() ? student.full_name.trim() : '';
+          const fallbackName = realStudentNames[id - 1] || `Siswa ${String(id).padStart(3, '0')}`;
+          const safeName = /^Siswa\s+\d+$/i.test(recordName) ? fallbackName : (recordName || fallbackName);
+          const splitName = safeName.split(' ');
+          const firstName = splitName[0] || 'Siswa';
+          const lastName = splitName.slice(1).join(' ') || 'Angkatan';
+          const baseInstagram = `@${firstName.toLowerCase()}${lastName.toLowerCase()}`.replace(/\s+/g, '');
+
+          return {
+            ...student,
+            id,
+            full_name: safeName,
+            nickname: student.nickname || firstName,
+            class_name: student.class_name || defaultClassList[(id - 1) % defaultClassList.length],
+            major: student.major || defaultMajorList[(id - 1) % defaultMajorList.length],
+            graduation_year: student.graduation_year || 2026,
+            motto: student.motto || 'Belajar tanpa lelah, tumbuh tanpa menyerah.',
+            favorite_quote: student.favorite_quote || 'Jangan menunggu sempurna untuk mulai.',
+            short_bio: student.short_bio || 'Aktif, kreatif, dan selalu siap membantu teman dalam setiap proses.',
+            known_for: student.known_for || 'Senantiasa menjaga semangat dan kebersamaan di kelas.',
+            photo_url: student.photo_url || studentPhotoPool[(id - 1) % studentPhotoPool.length],
+            instagram: student.instagram || baseInstagram,
+            tiktok: student.tiktok || student.instagram || baseInstagram,
+            email: student.email || `${firstName.toLowerCase()}.${lastName.toLowerCase()}${id}@example.com`
+          };
+        });
+      }
+
+      function readStoredData() {
+        try {
+          return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+        } catch (error) {
+          return [];
+        }
+      }
+
+      function saveStoredData(data) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      }
+
+      const fallbackStudents = generateFallbackStudents(145);
+
+      async function loadAlumniData() {
+        let loadedData = [];
+        const storedData = readStoredData();
+
+        if (Array.isArray(storedData) && storedData.length > 0) {
+          loadedData = normalizeStudents(storedData);
+        } else {
+          try {
+            const response = await fetch('./data_yearbook_145.json');
+            if (response.ok) {
+              const data = await response.json();
+              if (Array.isArray(data) && data.length > 0) {
+                loadedData = normalizeStudents(data);
+              }
+            }
+          } catch (error) {
+            console.warn('Tidak bisa memuat JSON dari data_yearbook_145.json, pakai fallback otomatis:', error);
+          }
+        }
+
+        if (!Array.isArray(loadedData) || loadedData.length === 0 || loadedData.length !== 145) {
+          loadedData = normalizeStudents(fallbackStudents);
+        }
+
+        saveStoredData(loadedData);
+        alumniData = loadedData;
+        populateFilterOptions(alumniData);
+        populateStudentEditorOptions();
+        loadPersonalProfile();
+
+        const countNode = document.querySelector('.meta-item strong');
+        if (countNode) {
+          countNode.textContent = String(loadedData.length);
+        }
+
+        if (typeof refreshData === 'function') {
+          refreshData();
+        }
+      }
+
+      function populateStudentEditorOptions() {
+        const select = document.getElementById('editStudentSelect');
+        if (!select || !alumniData.length) return;
+
+        select.innerHTML = alumniData.map((student) => `
+          <option value="${student.id}">${student.full_name}</option>
+        `).join('');
+
+        const selectedId = Number(select.value || alumniData[0].id);
+        select.value = String(selectedId);
+        fillStudentEditorForm(selectedId);
+      }
+
+      function createStudentTemplate(id) {
+        const fullName = realStudentNames[id - 1] || `Siswa ${String(id).padStart(3, '0')}`;
+        const firstName = fullName.split(' ')[0];
+        const lastName = fullName.split(' ').slice(1).join(' ') || 'Angkatan';
+        const className = defaultClassList[(id - 1) % defaultClassList.length];
+        const major = defaultMajorList[(id - 1) % defaultMajorList.length];
+        const baseInstagram = `@${firstName.toLowerCase()}${lastName.toLowerCase()}`.replace(/\s+/g, '');
+
+        return {
+          id,
+          full_name: fullName,
+          nickname: firstName,
+          class_name: className,
+          major,
+          graduation_year: 2026,
+          motto: 'Belajar tanpa lelah, tumbuh tanpa menyerah.',
+          favorite_quote: 'Jangan menunggu sempurna untuk mulai.',
+          short_bio: 'Aktif, kreatif, dan selalu siap membantu teman dalam setiap proses.',
+          known_for: 'Senantiasa menjaga semangat dan kebersamaan di kelas.',
+          photo_url: studentPhotoPool[(id - 1) % studentPhotoPool.length],
+          instagram: baseInstagram,
+          tiktok: baseInstagram,
+          email: `${firstName.toLowerCase()}.${lastName.toLowerCase()}${id}@example.com`
+        };
+      }
+
+      function fillStudentEditorForm(studentId) {
+        const student = alumniData.find((item) => item.id === Number(studentId));
+        if (!student) return;
+
+        document.getElementById('editFullName').value = student.full_name || '';
+        document.getElementById('editNickname').value = student.nickname || '';
+        document.getElementById('editClassName').value = student.class_name || '';
+        document.getElementById('editMajor').value = student.major || '';
+        document.getElementById('editPhotoUrl').value = student.photo_url || '';
+        document.getElementById('editEmail').value = student.email || '';
+        document.getElementById('editInstagram').value = student.instagram || '';
+        document.getElementById('editTiktok').value = student.tiktok || '';
+        document.getElementById('editMotto').value = student.motto || '';
+        document.getElementById('editFavoriteQuote').value = student.favorite_quote || '';
+        document.getElementById('editKnownFor').value = student.known_for || '';
+      }
+
+      function exportStudentData() {
+        const payload = JSON.stringify(alumniData, null, 2);
+        const blob = new Blob([payload], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'data_yearbook_export.json';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+      }
+
+      function getDefaultPersonalData() {
+        const baseStudent = alumniData[0] || normalizeStudents(fallbackStudents)[0];
+        return {
+          full_name: baseStudent.full_name || 'Rafi Pratama',
+          nickname: baseStudent.nickname || 'Rafi',
+          photo_url: baseStudent.photo_url || studentPhotoPool[0],
+          email: baseStudent.email || 'rafi@email.com',
+          instagram: baseStudent.instagram || '@rafi.pratama',
+          tiktok: baseStudent.tiktok || '@rafi.gram',
+          motto: baseStudent.motto || 'Berani maju, tetap rendah hati.',
+          favorite_quote: baseStudent.favorite_quote || 'Kelas bukan hanya tempat belajar, tapi tempat kenangan dibuat.',
+          known_for: baseStudent.known_for || 'Selalu siap membantu teman dan memimpin semangat kelas.'
+        };
+      }
+
+      function populatePersonalProfileForm(data = getDefaultPersonalData()) {
+        const fields = {
+          personalFullName: data.full_name,
+          personalNickname: data.nickname,
+          personalPhotoUrl: data.photo_url,
+          personalEmail: data.email,
+          personalInstagram: data.instagram,
+          personalTiktok: data.tiktok,
+          personalMotto: data.motto,
+          personalFavoriteQuote: data.favorite_quote,
+          personalKnownFor: data.known_for
+        };
+
+        Object.entries(fields).forEach(([id, value]) => {
+          const element = document.getElementById(id);
+          if (element) {
+            element.value = value || '';
+          }
+        });
+      }
+
+      function loadPersonalProfile() {
+        try {
+          const stored = JSON.parse(localStorage.getItem(PERSONAL_STORAGE_KEY) || 'null');
+          if (stored && typeof stored === 'object') {
+            populatePersonalProfileForm({ ...getDefaultPersonalData(), ...stored });
+            return;
+          }
+        } catch (error) {
+          console.warn('Data pribadi tidak valid, pakai default kembali:', error);
+        }
+
+        populatePersonalProfileForm(getDefaultPersonalData());
+      }
+
+      function bindStudentEditor() {
+        const select = document.getElementById('editStudentSelect');
+        const form = document.getElementById('studentEditorForm');
+        const resetButton = document.getElementById('resetStudentEditor');
+        const addButton = document.getElementById('addStudentBtn');
+        const deleteButton = document.getElementById('deleteStudentBtn');
+        const exportButton = document.getElementById('exportStudentDataBtn');
+        const personalForm = document.getElementById('personalProfileForm');
+        const resetAllButton = document.getElementById('resetAllDataBtn');
+
+        if (select) {
+          select.addEventListener('change', (event) => {
+            fillStudentEditorForm(event.target.value);
+          });
+        }
+
+        if (addButton) {
+          addButton.addEventListener('click', () => {
+            const nextId = alumniData.length ? Math.max(...alumniData.map((item) => Number(item.id))) + 1 : 1;
+            const newStudent = normalizeStudents([createStudentTemplate(nextId)])[0];
+            alumniData.push(newStudent);
+            saveStoredData(alumniData);
+            populateFilterOptions(alumniData);
+            populateStudentEditorOptions();
+            refreshData();
+            const nextSelectValue = String(newStudent.id);
+            if (select) select.value = nextSelectValue;
+            fillStudentEditorForm(newStudent.id);
+          });
+        }
+
+        if (deleteButton) {
+          deleteButton.addEventListener('click', () => {
+            if (!alumniData.length) return;
+            const studentId = Number(select.value || alumniData[0].id);
+            const student = alumniData.find((item) => item.id === studentId);
+            if (!student) return;
+
+            const shouldDelete = window.confirm(`Hapus data ${student.full_name}?`);
+            if (!shouldDelete) return;
+
+            alumniData = alumniData
+              .filter((item) => item.id !== studentId)
+              .map((item, index) => ({ ...item, id: index + 1, full_name: item.full_name || `Siswa ${String(index + 1).padStart(3, '0')}` }));
+
+            saveStoredData(alumniData);
+            populateFilterOptions(alumniData);
+            populateStudentEditorOptions();
+            refreshData();
+          });
+        }
+
+        if (exportButton) {
+          exportButton.addEventListener('click', exportStudentData);
+        }
+
+        if (resetButton) {
+          resetButton.addEventListener('click', () => {
+            const studentId = Number(select.value || alumniData[0].id);
+            const defaultData = normalizeStudents(generateFallbackStudents(Math.max(alumniData.length, 145)));
+            const baseStudent = defaultData.find((item) => item.id === studentId) || defaultData[0];
+            if (baseStudent) {
+              const index = alumniData.findIndex((item) => item.id === studentId);
+              if (index >= 0) {
+                alumniData[index] = { ...alumniData[index], ...baseStudent };
+                saveStoredData(alumniData);
+                populateFilterOptions(alumniData);
+                refreshData();
+                fillStudentEditorForm(studentId);
+              }
+            }
+          });
+        }
+
+        if (resetAllButton) {
+          resetAllButton.addEventListener('click', () => {
+            const shouldReset = window.confirm('Reset semua data dan kembalikan ke tampilan awal?');
+            if (!shouldReset) return;
+
+            alumniData = normalizeStudents(generateFallbackStudents(145));
+            saveStoredData(alumniData);
+            localStorage.removeItem(PERSONAL_STORAGE_KEY);
+            populateFilterOptions(alumniData);
+            populateStudentEditorOptions();
+            loadPersonalProfile();
+            refreshData();
+            if (alumniData[0]) updateDetail(alumniData[0]);
+          });
+        }
+
+        if (personalForm) {
+          personalForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const personalData = {
+              full_name: document.getElementById('personalFullName').value.trim() || getDefaultPersonalData().full_name,
+              nickname: document.getElementById('personalNickname').value.trim() || getDefaultPersonalData().nickname,
+              photo_url: document.getElementById('personalPhotoUrl').value.trim() || getDefaultPersonalData().photo_url,
+              email: document.getElementById('personalEmail').value.trim() || getDefaultPersonalData().email,
+              instagram: document.getElementById('personalInstagram').value.trim() || getDefaultPersonalData().instagram,
+              tiktok: document.getElementById('personalTiktok').value.trim() || getDefaultPersonalData().tiktok,
+              motto: document.getElementById('personalMotto').value.trim() || getDefaultPersonalData().motto,
+              favorite_quote: document.getElementById('personalFavoriteQuote').value.trim() || getDefaultPersonalData().favorite_quote,
+              known_for: document.getElementById('personalKnownFor').value.trim() || getDefaultPersonalData().known_for
+            };
+
+            localStorage.setItem(PERSONAL_STORAGE_KEY, JSON.stringify(personalData));
+
+            if (alumniData[0]) {
+              alumniData[0] = normalizeStudents([{ ...alumniData[0], ...personalData }])[0];
+              saveStoredData(alumniData);
+              populateFilterOptions(alumniData);
+              populateStudentEditorOptions();
+              refreshData();
+              updateDetail(alumniData[0]);
+            }
+          });
+        }
+
+        if (form) {
+          form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const studentId = Number(select.value || alumniData[0].id);
+            const index = alumniData.findIndex((item) => item.id === studentId);
+
+            if (index < 0) return;
+
+            const updatedStudent = {
+              ...alumniData[index],
+              full_name: document.getElementById('editFullName').value.trim() || alumniData[index].full_name,
+              nickname: document.getElementById('editNickname').value.trim() || alumniData[index].nickname,
+              class_name: document.getElementById('editClassName').value.trim() || alumniData[index].class_name,
+              major: document.getElementById('editMajor').value.trim() || alumniData[index].major,
+              photo_url: document.getElementById('editPhotoUrl').value.trim() || alumniData[index].photo_url,
+              email: document.getElementById('editEmail').value.trim() || alumniData[index].email,
+              instagram: document.getElementById('editInstagram').value.trim() || alumniData[index].instagram,
+              tiktok: document.getElementById('editTiktok').value.trim() || alumniData[index].tiktok,
+              motto: document.getElementById('editMotto').value.trim() || alumniData[index].motto,
+              favorite_quote: document.getElementById('editFavoriteQuote').value.trim() || alumniData[index].favorite_quote,
+              known_for: document.getElementById('editKnownFor').value.trim() || alumniData[index].known_for
+            };
+
+            alumniData[index] = normalizeStudents([updatedStudent])[0];
+            saveStoredData(alumniData);
+            populateFilterOptions(alumniData);
+            refreshData();
+            fillStudentEditorForm(studentId);
+          });
+        }
+      }
+
+
+      const profileGrid = document.getElementById('profileGrid');
+      const searchInput = document.getElementById('searchInput');
+      const classFilter = document.getElementById('classFilter');
+      const majorFilter = document.getElementById('majorFilter');
+
+      function populateFilterOptions(data) {
+        const classOptions = [...new Set(data.map(item => item.class_name))].sort();
+        const majorOptions = [...new Set(data.map(item => item.major))].sort();
+
+        classFilter.innerHTML = '<option value="">Semua kelas</option>';
+        majorFilter.innerHTML = '<option value="">Semua jurusan</option>';
+
+        classOptions.forEach((item) => {
+          const option = document.createElement('option');
+          option.value = item;
+          option.textContent = item;
+          classFilter.appendChild(option);
+        });
+
+        majorOptions.forEach((item) => {
+          const option = document.createElement('option');
+          option.value = item;
+          option.textContent = item;
+          majorFilter.appendChild(option);
+        });
+      }
+
+      function renderProfileCards(data) {
+        profileGrid.innerHTML = data.map(student => `
+          <article class="student-card">
+            <img src="${student.photo_url}" alt="${student.full_name}" />
+            <div class="student-card-body">
+              <div class="student-header">
+                <span class="profile-badge">${student.class_name}</span>
+                <span class="profile-nickname">${student.nickname}</span>
+              </div>
+              <h3>${student.full_name}</h3>
+              <div class="profile-tag-wrap">
+                <span class="profile-tag">${student.major}</span>
+                <span class="profile-tag">${student.graduation_year}</span>
+              </div>
+              <p class="profile-quote">“${student.favorite_quote}”</p>
+              <p class="profile-known"><strong>${student.known_for}</strong></p>
+              <button class="profile-link btn btn-primary" type="button" data-id="${student.id}">Lihat profil</button>
+            </div>
+          </article>
+        `).join('');
+
+        document.querySelectorAll('[data-id]').forEach(button => {
+          button.addEventListener('click', () => {
+            const target = alumniData.find(item => item.id === Number(button.dataset.id));
+            if (target) updateDetail(target);
+            document.getElementById('students').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        });
+      }
+
+      function updateDetail(student) {
+        document.getElementById('detailImage').src = student.photo_url;
+        document.getElementById('detailImage').alt = student.full_name;
+        document.getElementById('detailClass').textContent = student.class_name;
+        document.getElementById('detailMajor').textContent = student.major;
+        document.getElementById('detailName').textContent = student.full_name;
+        document.getElementById('detailQuote').textContent = `“${student.favorite_quote}”`;
+        document.getElementById('detailNickname').textContent = student.nickname;
+        document.getElementById('detailMotto').textContent = student.motto;
+        document.getElementById('detailKnown').textContent = student.known_for;
+        document.getElementById('detailInstagram').textContent = student.instagram;
+        document.getElementById('detailTiktok').textContent = student.tiktok;
+        document.getElementById('detailEmail').textContent = student.email;
+      }
+
+      function getFilteredData() {
+        const keyword = searchInput.value.trim().toLowerCase();
+        return alumniData.filter((student) => {
+          const matchSearch = !keyword || [student.full_name, student.nickname, student.class_name, student.major, student.motto].join(' ').toLowerCase().includes(keyword);
+          const matchClass = !classFilter.value || student.class_name === classFilter.value;
+          const matchMajor = !majorFilter.value || student.major === majorFilter.value;
+          return matchSearch && matchClass && matchMajor;
+        });
+      }
+
+      function refreshData() {
+        const filtered = getFilteredData();
+        renderProfileCards(filtered);
+        if (filtered.length > 0) updateDetail(filtered[0]);
+      }
+
+      searchInput.addEventListener('input', refreshData);
+      classFilter.addEventListener('change', refreshData);
+      majorFilter.addEventListener('change', refreshData);
+
+     bindStudentEditor();
+     loadAlumniData();
+   </script>
+  </body>
+</html>

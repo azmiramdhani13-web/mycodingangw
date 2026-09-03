@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Love 3D Animation</title>
+    <style>
+      :root {
+        --bg1: #150816;
+        --bg2: #310b29;
+        --bg3: #5a103f;
+        --red: #ff3c7a;
+        --pink: #ff7cc8;
+        --violet: #ffb2ef;
+        --gold: #ffd166;
+        --white: #fff4fb;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html, body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: Arial, Helvetica, sans-serif;
+        background: radial-gradient(circle at 50% 30%, #5a103f 0%, var(--bg2) 25%, var(--bg1) 62%, #08030d 100%);
+      }
+
+      body {
+        display: grid;
+        place-items: center;
+      }
+
+      .scene {
+        position: relative;
+        width: min(90vw, 700px);
+        height: min(90vw, 700px);
+        display: grid;
+        place-items: center;
+        perspective: 1200px;
+        filter: drop-shadow(0 0 30px rgba(255, 86, 155, 0.45));
+      }
+
+      .orbit {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        animation: rotateScene 18s linear infinite;
+      }
+
+      .love-core {
+        position: relative;
+        width: 320px;
+        height: 320px;
+        transform-style: preserve-3d;
+        animation: floaty 4s ease-in-out infinite;
+      }
+
+      .heart {
+        --size: 210px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: var(--size);
+        height: var(--size);
+        transform-origin: center;
+        background: linear-gradient(135deg, var(--pink), var(--red) 40%, #ff1d4a 100%);
+        transform: translate(-50%, -50%) rotate(-45deg) translateZ(var(--z, 0px));
+        border-radius: 16px 0 0 0;
+        box-shadow:
+          inset -12px -12px 18px rgba(118, 2, 38, 0.3),
+          inset 20px 20px 14px rgba(255,255,255,0.25),
+          0 0 26px rgba(255, 75, 140, 0.7),
+          0 18px 48px rgba(255, 67, 134, 0.45);
+      }
+
+      .heart::before,
+      .heart::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: inherit;
+        border-radius: 50%;
+      }
+
+      .heart::before {
+        left: 0;
+        top: -50%;
+      }
+
+      .heart::after {
+        left: 50%;
+        top: 0;
+      }
+
+      .heart.a {
+        --size: 210px;
+        --z: -60px;
+        animation: heartSpinA 12s ease-in-out infinite alternate;
+      }
+
+      .heart.b {
+        --size: 180px;
+        --z: 50px;
+        filter: brightness(1.15);
+        animation: heartSpinB 10s ease-in-out infinite alternate;
+      }
+
+      .heart.c {
+        --size: 150px;
+        --z: 110px;
+        opacity: 0.9;
+        animation: heartSpinC 9s ease-in-out infinite alternate;
+      }
+
+      .ring {
+        position: absolute;
+        width: 360px;
+        height: 360px;
+        border: 2px solid rgba(255, 202, 243, 0.5);
+        border-radius: 50%;
+        transform: rotateX(72deg) translateZ(-20px);
+        box-shadow:
+          0 0 24px rgba(255, 166, 220, 0.35),
+          inset 0 0 24px rgba(255, 166, 220, 0.2);
+        animation: pulseRing 4s ease-in-out infinite;
+      }
+
+      .ring.r2 {
+        width: 430px;
+        height: 430px;
+        border-color: rgba(255, 234, 155, 0.25);
+        animation-delay: 0.5s;
+      }
+
+      .glow {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 91, 156, 0.38) 0%, rgba(255, 91, 156, 0.1) 35%, transparent 72%);
+        transform: translateZ(-180px);
+        filter: blur(14px);
+      }
+
+      .label {
+        position: absolute;
+        bottom: 8%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-weight: 900;
+        letter-spacing: 0.75rem;
+        font-size: clamp(1.4rem, 3vw, 3rem);
+        color: var(--white);
+        text-shadow: 0 0 18px rgba(255, 140, 214, 0.9), 0 0 35px rgba(255, 95, 155, 0.8);
+        animation: textPulse 3s ease-in-out infinite;
+      }
+
+      .sparks {
+        position: absolute;
+        inset: 0;
+        overflow: visible;
+        pointer-events: none;
+      }
+
+      .spark {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: radial-gradient(circle, #fff 0%, #ffd9f0 35%, rgba(255, 255, 255, 0.1) 70%, transparent 100%);
+        border-radius: 50%;
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+        animation: floatSpark var(--dur) ease-in-out infinite;
+        animation-delay: var(--delay);
+        left: var(--x);
+        top: var(--y);
+      }
+
+      @keyframes rotateScene {
+        0% { transform: rotateX(18deg) rotateY(0deg) rotateZ(0deg); }
+        50% { transform: rotateX(-12deg) rotateY(180deg) rotateZ(8deg); }
+        100% { transform: rotateX(18deg) rotateY(360deg) rotateZ(0deg); }
+      }
+
+      @keyframes floaty {
+        0%, 100% { transform: translateY(0px) scale(1); }
+        50% { transform: translateY(-18px) scale(1.02); }
+      }
+
+      @keyframes pulseRing {
+        0%, 100% { transform: rotateX(72deg) translateZ(-20px) scale(1); opacity: 0.8; }
+        50% { transform: rotateX(72deg) translateZ(30px) scale(1.08); opacity: 1; }
+      }
+
+      @keyframes textPulse {
+        0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.9; }
+        50% { transform: translateX(-50%) scale(1.08); opacity: 1; }
+      }
+
+      @keyframes heartSpinA {
+        0% { transform: translate(-50%, -50%) rotate(-45deg) rotateY(-15deg) rotateX(10deg) translateZ(-60px); }
+        100% { transform: translate(-50%, -50%) rotate(-45deg) rotateY(20deg) rotateX(-10deg) translateZ(-60px); }
+      }
+
+      @keyframes heartSpinB {
+        0% { transform: translate(-50%, -50%) rotate(-45deg) rotateY(22deg) rotateX(-18deg) translateZ(50px); }
+        100% { transform: translate(-50%, -50%) rotate(-45deg) rotateY(-24deg) rotateX(18deg) translateZ(50px); }
+      }
+
+      @keyframes heartSpinC {
+        0% { transform: translate(-50%, -50%) rotate(-45deg) rotateY(18deg) rotateX(14deg) translateZ(110px); }
+        100% { transform: translate(-50%, -50%) rotate(-45deg) rotateY(-18deg) rotateX(-14deg) translateZ(110px); }
+      }
+
+      @keyframes floatSpark {
+        0% {
+          transform: translate3d(0, 0, 0) scale(0.7);
+          opacity: 0;
+        }
+        15% {
+          opacity: 1;
+        }
+        100% {
+          transform: translate3d(var(--tx), var(--ty), var(--tz)) scale(1.6);
+          opacity: 0;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .love-core {
+          transform: scale(0.8);
+        }
+
+        .label {
+          letter-spacing: 0.35rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="scene">
+      <div class="orbit">
+        <div class="glow"></div>
+        <div class="ring"></div>
+        <div class="ring r2"></div>
+
+        <div class="love-core">
+          <div class="heart a"></div>
+          <div class="heart b"></div>
+          <div class="heart c"></div>
+        </div>
+      </div>
+
+      <div class="sparks" id="sparks"></div>
+      <div class="label">LOVE</div>
+    </div>
+
+    <script>
+      const sparks = document.getElementById('sparks');
+      const total = 28;
+
+      for (let i = 0; i < total; i++) {
+        const spark = document.createElement('span');
+        spark.className = 'spark';
+
+        const x = 50 + (Math.random() * 28 - 14);
+        const y = 50 + (Math.random() * 28 - 14);
+        const tx = (Math.random() * 200 - 100).toFixed(2) + 'px';
+        const ty = (Math.random() * 180 - 90).toFixed(2) + 'px';
+        const tz = (Math.random() * 220 - 110).toFixed(2) + 'px';
+        const dur = (6 + Math.random() * 5).toFixed(2) + 's';
+        const delay = (-Math.random() * 5).toFixed(2) + 's';
+
+        spark.style.setProperty('--x', x + '%');
+        spark.style.setProperty('--y', y + '%');
+        spark.style.setProperty('--tx', tx);
+        spark.style.setProperty('--ty', ty);
+        spark.style.setProperty('--tz', tz);
+        spark.style.setProperty('--dur', dur);
+        spark.style.setProperty('--delay', delay);
+
+        spark.style.width = (6 + Math.random() * 12) + 'px';
+        spark.style.height = spark.style.width;
+        spark.style.opacity = (0.5 + Math.random() * 0.5).toFixed(2);
+
+        sparks.appendChild(spark);
+      }
+    </script>
+  </body>
+</html>
